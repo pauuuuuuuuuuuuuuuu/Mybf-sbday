@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Bocil</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Caveat:wght@500;700&family=Special+Elite&family=Reenie+Beanie&display=swap">
+<style>
+/* Layout: a scrapbook on lavender paper — torn strips, taped polaroids, a tracklist sleeve, a letter in an envelope. One deliberate look, no dark mode. */
+:root{
+  --paper:#e9e0f3;       /* lavender page */
+  --paper-2:#f6f1e7;     /* cream note paper */
+  --ink:#24133a;         /* deep aubergine ink */
+  --violet:#6b3fa0;      /* main purple */
+  --lilac:#b79ee0;       /* soft purple */
+  --rose:#e46a8c;        /* pink pop */
+  --tape:rgba(240,228,190,.78);
+  --display:"Rubik Dirt","Impact","Arial Black",sans-serif;
+  --hand:"Caveat","Reenie Beanie","Comic Sans MS",cursive;
+  --scrawl:"Reenie Beanie","Caveat",cursive;
+  --type:"Special Elite","Courier New",monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+html{overflow-x:hidden}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--paper)}
+body{
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2  0 0 0 0 .1  0 0 0 0 .3  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color:var(--ink);font-family:var(--type);font-size:16px;line-height:1.55;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:56px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,7vw,4rem);line-height:.95;margin:0;letter-spacing:.01em;text-wrap:balance}
+.eyebrow{font-family:var(--type);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;color:var(--violet)}
+:focus-visible{outline:3px dashed var(--rose);outline-offset:4px}
+
+/* ---------- reusable paper bits ---------- */
+.tape{position:absolute;width:96px;height:28px;background:var(--tape);box-shadow:0 1px 2px rgba(0,0,0,.08);z-index:2;
+  clip-path:polygon(3% 0,97% 4%,100% 50%,96% 100%,2% 96%,0 50%)}
+.torn{filter:drop-shadow(0 6px 10px rgba(36,19,58,.18))}
+.polaroid{position:relative;background:#fffdf8;padding:10px 10px 46px;box-shadow:0 10px 24px rgba(36,19,58,.22),0 1px 0 rgba(0,0,0,.05);
+  transform:rotate(var(--r,0deg));transition:transform .35s cubic-bezier(.2,.8,.2,1.2);cursor:zoom-in;border:0;font:inherit;color:inherit;text-align:left}
+.polaroid img{width:100%;aspect-ratio:var(--ar,4/3);object-fit:cover;background:#ddd}
+.polaroid figcaption,.polaroid .cap{position:absolute;left:12px;right:12px;bottom:8px;font-family:var(--hand);font-size:1.3rem;line-height:1.1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.polaroid:hover,.polaroid:focus-visible{transform:rotate(0deg) scale(1.04);z-index:5}
+.star{position:absolute;color:var(--rose);font-family:var(--display);pointer-events:none}
+
+/* ---------- HERO ---------- */
+.hero{padding-block:36px 64px;position:relative}
+.stamp{display:inline-block;font-family:var(--type);border:2px solid var(--violet);color:var(--violet);padding:4px 12px;transform:rotate(-3deg);letter-spacing:.15em;font-size:.8rem;text-transform:uppercase}
+.ransom{display:flex;flex-wrap:wrap;gap:6px 4px;margin:28px 0 8px;max-width:820px}
+.ransom .word{display:flex;gap:3px;margin-right:14px;padding:0;box-shadow:none;transform:none;font-size:1rem;background:none}
+.ransom span{display:inline-block;font-family:var(--display);font-size:clamp(2.6rem,10vw,6.4rem);line-height:1;padding:.06em .12em .02em;
+  transform:rotate(var(--r,0deg)) translateY(var(--y,0));box-shadow:2px 3px 0 rgba(36,19,58,.18)}
+.ransom .a{background:var(--violet);color:var(--paper-2)}
+.ransom .b{background:var(--paper-2);color:var(--ink);font-family:var(--type)}
+.ransom .c{background:var(--rose);color:#fff}
+.ransom .d{background:var(--ink);color:var(--lilac)}
+.ransom .e{background:var(--lilac);color:var(--ink);font-family:var(--scrawl);font-size:clamp(3rem,11vw,7rem)}
+.hero .sub{font-family:var(--hand);font-size:clamp(1.7rem,4.6vw,2.6rem);line-height:1.1;margin:10px 0 0;color:var(--violet);max-width:620px}
+.hero .sub b{color:var(--rose);font-weight:700}
+.collage{position:relative;display:grid;align-items:start;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;max-width:900px}
+.collage .polaroid:nth-child(2){margin-top:34px}
+.collage .polaroid:nth-child(3){margin-top:8px}
+.strip-band{position:absolute;inset:auto -40px 0 -40px;height:120px;background:var(--lilac);z-index:-1;opacity:.55}
+
+/* ---------- TRACKLIST SLEEVE ---------- */
+.sleeve{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:0;background:var(--violet);color:var(--paper-2);position:relative;box-shadow:0 18px 40px rgba(36,19,58,.3)}
+.sleeve .cover{position:relative;min-height:320px;overflow:hidden;background:#3b1e5e}
+.sleeve .cover img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25) contrast(1.05) saturate(1.1);mix-blend-mode:luminosity;opacity:.85}
+.sleeve .cover .album{position:absolute;left:18px;bottom:22px;right:16px;font-family:var(--display);font-size:clamp(2.4rem,6vw,3.8rem);line-height:.9;color:var(--paper-2);text-shadow:0 2px 0 var(--ink)}
+.sleeve .cover .album small{display:block;font-family:var(--hand);font-size:1.5rem;color:var(--lilac);text-shadow:none;margin-top:6px}
+.tracks{padding:28px 26px 30px;min-width:0}
+.tracks .eyebrow{color:var(--lilac)}
+.tracks ol{list-style:none;margin:14px 0 0;padding:0;counter-reset:t}
+.tracks li{display:grid;grid-template-columns:2.2em minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:9px 0;border-bottom:1px dashed rgba(246,241,231,.28);counter-increment:t}
+.tracks li::before{content:counter(t,decimal-leading-zero);font-family:var(--type);color:var(--lilac);font-size:.85rem}
+.tracks .t{font-family:var(--hand);font-size:1.45rem;line-height:1.15}
+.tracks .t em{display:block;font-style:normal;font-family:var(--type);font-size:.78rem;color:rgba(246,241,231,.7);margin-top:2px;line-height:1.4}
+.tracks .d{font-family:var(--type);font-size:.8rem;color:var(--lilac);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tracks li.bonus .t{color:#ffd0dc}
+.tracks .foot{margin-top:16px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(246,241,231,.6)}
+
+/* ---------- EVIDENCE WALL ---------- */
+.wall-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:30px}
+.wall-head p{font-family:var(--hand);font-size:1.5rem;margin:0;color:var(--violet);max-width:360px;line-height:1.15}
+.day{margin-top:40px}
+.day-label{display:inline-block;background:var(--paper-2);padding:6px 16px 4px;font-family:var(--type);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;transform:rotate(-1.5deg);box-shadow:0 3px 8px rgba(36,19,58,.12);margin-bottom:22px}
+.day-label b{font-family:var(--hand);font-size:1.4rem;text-transform:none;letter-spacing:0;color:var(--rose);margin-left:6px}
+.wall{display:flex;flex-wrap:wrap;justify-content:center;gap:30px 22px}
+.wall .polaroid{width:min(230px,calc(50% - 8px))}
+.wall .polaroid img{aspect-ratio:1/1}
+
+/* ---------- PHOTOSTRIP ---------- */
+.stripbox{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center}
+.photostrip{position:relative;transform:rotate(2.5deg);background:#111;padding:8px;box-shadow:0 18px 40px rgba(36,19,58,.35);max-width:420px;justify-self:center;cursor:zoom-in;border:0}
+.photostrip img{width:100%}
+.photostrip .tape{top:-12px;left:50%;margin-left:-48px;transform:rotate(-4deg)}
+.stripnote{background:var(--paper-2);padding:28px 26px;position:relative;transform:rotate(-1deg);box-shadow:0 10px 26px rgba(36,19,58,.15)}
+.stripnote p{font-family:var(--hand);font-size:1.55rem;line-height:1.3;margin:12px 0 0}
+.stripnote .tape{top:-14px;left:24px;transform:rotate(-8deg)}
+
+/* ---------- LIKES (sticky notes) ---------- */
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:22px;margin-top:30px}
+.note{position:relative;padding:26px 18px 20px;font-family:var(--hand);font-size:1.45rem;line-height:1.15;min-height:130px;box-shadow:0 8px 16px rgba(36,19,58,.15);transform:rotate(var(--r,0deg))}
+.note:nth-child(4n+1){background:#f7f0b5}
+.note:nth-child(4n+2){background:#f6cfdb}
+.note:nth-child(4n+3){background:#d9cdf2}
+.note:nth-child(4n+4){background:var(--paper-2)}
+.note .tape{top:-12px;left:50%;margin-left:-40px;width:80px;transform:rotate(3deg)}
+.quote{margin-top:34px;font-family:var(--type);font-size:.95rem;max-width:62ch;border-left:3px solid var(--rose);padding-left:16px;color:var(--violet)}
+
+/* ---------- LETTER ---------- */
+.letter-sec{text-align:center}
+.envelope{position:relative;width:min(420px,100%);aspect-ratio:3/2;margin:34px auto 0;background:var(--lilac);border:0;cursor:pointer;box-shadow:0 18px 36px rgba(36,19,58,.25);font:inherit;color:inherit;padding:0;display:block}
+.envelope::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right,transparent 49.5%,rgba(107,63,160,.35) 50%,transparent 50.5%),linear-gradient(to bottom left,transparent 49.5%,rgba(107,63,160,.35) 50%,transparent 50.5%)}
+.envelope .flap{position:absolute;left:0;right:0;top:0;height:58%;background:var(--violet);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .6s ease}
+.envelope .seal{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-40px 0 0 -32px;border-radius:50%;background:var(--rose);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:1.6rem;box-shadow:0 3px 0 rgba(0,0,0,.15);z-index:2}
+.envelope .to{position:absolute;left:0;right:0;bottom:16px;font-family:var(--hand);font-size:1.5rem;color:var(--ink)}
+.envelope{transition:margin-top .6s ease}
+.envelope.open{margin-top:min(200px,42vw)}
+.envelope.open .flap{transform:rotateX(180deg)}
+.envelope.open .seal{opacity:0;transition:opacity .3s}
+.hint{font-family:var(--hand);font-size:1.3rem;color:var(--violet);margin-top:14px}
+.letter{text-align:left;max-width:680px;margin:40px auto 0;background-color:var(--paper-2);
+  background-image:repeating-linear-gradient(to bottom,transparent 0 33px,rgba(107,63,160,.18) 33px 34px),linear-gradient(to right,transparent 52px,rgba(228,106,140,.45) 52px 54px,transparent 54px);
+  padding:40px 26px 40px 70px;position:relative;box-shadow:0 18px 40px rgba(36,19,58,.22);transform:rotate(-.6deg)}
+.letter .tape{top:-14px;right:40px;transform:rotate(6deg)}
+.letter p{font-family:var(--hand);font-size:1.5rem;line-height:34px;margin:0 0 34px}
+.letter p:last-child{margin-bottom:0}
+.letter .sign{text-align:right;color:var(--violet);font-size:1.8rem}
+.letter-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .9s ease}
+.letter-wrap.show{grid-template-rows:1fr}
+.letter-wrap > div{overflow:hidden;padding-inline:8px;padding-bottom:30px}
+
+/* ---------- TICKET + WISH ---------- */
+.ticket{display:grid;grid-template-columns:minmax(0,1fr) 150px;max-width:640px;margin:0 auto;background:var(--paper-2);box-shadow:0 14px 30px rgba(36,19,58,.2);transform:rotate(1deg);position:relative;
+  -webkit-mask:radial-gradient(circle 14px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 14px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;
+          mask:radial-gradient(circle 14px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 14px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat}
+.ticket .main{padding:22px 26px;border-right:2px dashed rgba(36,19,58,.3);min-width:0}
+.ticket .main .eyebrow{color:var(--rose)}
+.ticket .main h3{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,5vw,2.6rem);margin:6px 0 10px;line-height:1}
+.ticket dl{display:grid;grid-template-columns:repeat(4,auto);gap:4px 18px;margin:0;font-size:.8rem}
+.ticket dt{text-transform:uppercase;letter-spacing:.1em;color:var(--violet);font-size:.68rem}
+.ticket dd{margin:0;font-variant-numeric:tabular-nums}
+.ticket .stub{display:grid;place-items:center;text-align:center;padding:16px}
+.ticket .stub>div{display:flex;flex-direction:column;align-items:center;gap:4px}
+.ticket .stub b{font-family:var(--display);font-size:4rem;line-height:1;color:var(--violet);font-weight:400}
+.ticket .stub span{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+.wish{margin-top:56px;text-align:center}
+.cake{font-size:0;display:inline-flex;flex-direction:column;align-items:center;gap:0;border:0;background:none;cursor:pointer;padding:10px}
+.flames{display:flex;gap:18px;height:38px;align-items:end}
+.candle{width:10px;height:34px;background:repeating-linear-gradient(45deg,var(--rose) 0 6px,var(--paper-2) 6px 12px);position:relative;border-radius:2px}
+.candle::before{content:"";position:absolute;left:50%;top:-20px;width:14px;height:20px;margin-left:-7px;background:radial-gradient(ellipse at 50% 70%,#fff3b0 0 30%,#ffb347 55%,transparent 72%);border-radius:50% 50% 45% 45%;animation:flick .25s infinite alternate}
+.cake.out .candle::before{opacity:0;transition:opacity .2s}
+.tier{width:200px;height:56px;background:var(--lilac);border-radius:6px 6px 0 0;position:relative}
+.tier::after{content:"";position:absolute;left:0;right:0;top:0;height:16px;background:radial-gradient(circle at 10px 0,var(--paper-2) 10px,transparent 11px) 0 0/20px 16px repeat-x}
+.tier.big{width:250px;height:70px;background:var(--violet);border-radius:6px 6px 4px 4px}
+.wish p{font-family:var(--hand);font-size:1.7rem;margin:14px 0 0;color:var(--violet)}
+.wish .after{color:var(--rose);font-size:2.1rem}
+@keyframes flick{to{transform:scale(1.08,.92) translateY(1px)}}
+
+footer{padding-block:40px 60px;text-align:center;font-family:var(--hand);font-size:1.4rem;color:var(--violet)}
+footer small{display:block;font-family:var(--type);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);opacity:.6;margin-top:6px}
+
+/* lightbox */
+dialog{border:0;padding:12px 12px 52px;background:#fffdf8;max-width:min(92vw,900px);max-height:92vh;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(36,19,58,.72)}
+dialog img{max-height:calc(92vh - 80px);width:auto;margin:0 auto}
+dialog p{position:absolute;left:16px;right:60px;bottom:10px;margin:0;font-family:var(--hand);font-size:1.5rem}
+dialog button{position:absolute;right:12px;bottom:10px;border:0;background:var(--violet);color:#fff;font-family:var(--type);padding:6px 12px;cursor:pointer}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+
+@media (max-width:720px){
+  .sleeve{grid-template-columns:1fr}
+  .sleeve .cover{min-height:260px}
+  .stripbox{grid-template-columns:1fr}
+  .collage{gap:10px}
+  .collage .polaroid{padding:6px 6px 30px}
+  .collage .cap{font-size:1rem;bottom:6px}
+  .letter{padding:30px 18px 30px 44px;background-image:repeating-linear-gradient(to bottom,transparent 0 33px,rgba(107,63,160,.18) 33px 34px),linear-gradient(to right,transparent 30px,rgba(228,106,140,.45) 30px 32px,transparent 32px)}
+  .ticket{grid-template-columns:minmax(0,1fr) 96px}
+  .ticket dl{grid-template-columns:repeat(2,auto)}
+  .ticket .stub b{font-size:2.8rem}
+  .wall{gap:22px 14px}
+  .wall .cap{font-size:1.05rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <span class="stamp">14 · 11 · 2026 &nbsp;/&nbsp; edisi spesial</span>
+  <h1 class="ransom" aria-label="Happy Birthday, Fakhry">
+    <span class="word"><span class="a" style="--r:-4deg">H</span><span class="b" style="--r:3deg;--y:4px">a</span><span class="c" style="--r:-2deg">P</span><span class="d" style="--r:5deg;--y:-3px">p</span><span class="e" style="--r:-6deg">y</span></span>
+    <span class="word"><span class="b" style="--r:2deg">B</span><span class="a" style="--r:-5deg;--y:3px">i</span><span class="d" style="--r:4deg">R</span><span class="c" style="--r:-3deg;--y:-2px">t</span><span class="e" style="--r:6deg">h</span><span class="b" style="--r:-2deg;--y:4px">D</span><span class="a" style="--r:3deg">a</span><span class="c" style="--r:-5deg">Y</span></span>
+    <span class="word"><span class="d" style="--r:-3deg">F</span><span class="e" style="--r:4deg;--y:3px">a</span><span class="b" style="--r:-4deg">K</span><span class="a" style="--r:2deg;--y:-4px">h</span><span class="c" style="--r:-2deg">R</span><span class="b" style="--r:5deg">y</span></span>
+  </h1>
+  <p class="sub">buat <b>bocil jawir</b> kesayangan aku, yang dulu chat pertamanya <i>"halo kak pau mau ijin tanya"</i> 🤍</p>
+  <div class="collage">
+    <button class="polaroid" style="--r:-5deg" data-i="16"><span class="tape" style="top:-12px;left:20px;transform:rotate(-10deg)"></span><img src="img/17.jpg" alt="Kita berdua teriak di photobox lift" style="--ar:3/4" loading="eager"><span class="cap">AAAAA 🤠🐱</span></button>
+    <button class="polaroid" style="--r:3deg" data-i="7"><span class="tape" style="top:-12px;right:16px;transform:rotate(8deg)"></span><img src="img/08.jpg" alt="Sushi date" loading="eager"><span class="cap">sushi date!</span></button>
+    <button class="polaroid" style="--r:-2deg" data-i="0"><span class="tape" style="top:-12px;left:30%;transform:rotate(-3deg)"></span><img src="img/01.jpg" alt="Pose cakar galak" loading="eager"><span class="cap">rawr, mode galak</span></button>
+  </div>
+</header>
+
+<section class="wrap" aria-labelledby="tl">
+  <div class="sleeve torn">
+    <div class="cover">
+      <img src="img/16.jpg" alt="Kita berdua pakai topi koboi dan topi kucing">
+      <div class="album" id="tl">sayang,<br>the album<small>side A & B · 05.08 → 14.11</small></div>
+    </div>
+    <div class="tracks">
+      <span class="eyebrow">tracklist (urut sesuai chat kita)</span>
+      <ol>
+        <li><span class="t">halo kak pau, mau ijin tanya<em>lomba atau bootcamp? terus aku jadi "consultant u anjayyy"</em></span><span class="d">05.08</span></li>
+        <li><span class="t">gada pacar weee, mau pokus<em>kata aku dulu. iya, dulu.</em></span><span class="d">07.08</span></li>
+        <li><span class="t">opicial punya pacar ❌ keterima asah ✅<em>prioritas aku waktu itu wkwk</em></span><span class="d">13.08</span></li>
+        <li><span class="t">untung hubungan kita ga putus<em>senar gitar kamu yang putus, bukan kita</em></span><span class="d">22.08</span></li>
+        <li><span class="t">abeell cintakuu sayanggkuu sukaakuu<em>dan "kalo salting gabole kekerasan yaa"</em></span><span class="d">24.08</span></li>
+        <li><span class="t">pajak jadian? kan rak jadian<em>farel duluan yang heboh</em></span><span class="d">18.09</span></li>
+        <li><span class="t">selfie time, topi koboi & kucing<em>plus sushi go sampe kenyang</em></span><span class="d">20.10</span></li>
+        <li><span class="t">tiket studio 3<em>nonton berdua, tiketnya aku simpen</em></span><span class="d">21.10</span></li>
+        <li><span class="t">muka jelek session<em>ubeatz station, sebelah tulisan "sing your truth"</em></span><span class="d">13.11</span></li>
+        <li class="bonus"><span class="t">happy birthday ya, ganteng<em>bonus track · diputer terus</em></span><span class="d">14.11</span></li>
+      </ol>
+      <p class="foot">℗ pau & fakhry · semua lagu ditulis lewat whatsapp</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="ev">
+  <div class="wall-head">
+    <div><span class="eyebrow">barang bukti</span><h2 id="ev">kita, versi<br>foto random</h2></div>
+    <p>klik fotonya buat liat gede. iya, muka kamu jelek di semuanya. aku tetep suka 😝</p>
+  </div>
+
+  <div class="day">
+    <span class="day-label">20 oktober <b>photobox & sushi day</b></span>
+    <div class="wall" id="w1"></div>
+  </div>
+  <div class="day">
+    <span class="day-label">21 oktober <b>nonton!</b></span>
+    <div class="wall" id="w2"></div>
+  </div>
+  <div class="day">
+    <span class="day-label">13 november <b>sehari sebelum kamu ultah</b></span>
+    <div class="wall" id="w3"></div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="ps">
+  <div class="stripbox">
+    <button class="photostrip" data-i="17" aria-label="Lihat photostrip Selfie Time"><span class="tape"></span><img src="img/18.jpg" alt="Photostrip Selfie Time kita, delapan pose"></button>
+    <div class="stripnote">
+      <span class="tape"></span>
+      <span class="eyebrow">now playing · 3:45 / 4:49</span>
+      <h2 id="ps">selfie time</h2>
+      <p>8 pose, 2 topi aneh, 1 kecupan di frame terakhir yang bikin aku senyum sendiri tiap liat. kamu sok cool di foto ke-4, padahal aslinya bocil 🤭</p>
+      <p>fotonya udah aku pajang. pfp aku juga ganti gara-gara ini.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="lk">
+  <span class="eyebrow">ditulis ulang dari chat 12 september</span>
+  <h2 id="lk">hal-hal yang bikin aku sayang kamu</h2>
+  <div class="notes">
+    <div class="note" style="--r:-2deg"><span class="tape"></span>kamu tanggung jawab, dan effort kamu buat aku keliatan banget</div>
+    <div class="note" style="--r:2deg"><span class="tape"></span>rela pulang lebih sore cuma biar bisa ketemu aku</div>
+    <div class="note" style="--r:-1deg"><span class="tape"></span>nemenin aku sampe ketiduran (walaupun abis itu kamu mimisan 🥺)</div>
+    <div class="note" style="--r:3deg"><span class="tape"></span>beliin bunga, makanan, minuman, tanpa disuruh</div>
+    <div class="note" style="--r:-3deg"><span class="tape"></span>mau ngalah, mau jelasin pelan-pelan pas kita salah paham</div>
+    <div class="note" style="--r:1deg"><span class="tape"></span>ga kabur pas ada masalah. balik lagi ke binus pas kita marahan</div>
+    <div class="note" style="--r:-2deg"><span class="tape"></span>ga posesif sama mimpi-mimpi aku, jadi sayap aku tetep ada</div>
+    <div class="note" style="--r:2deg"><span class="tape"></span>pekerja keras, ambis, bocil b30 yang punya bisnis sendiri</div>
+  </div>
+  <p class="quote">"Mgkin penampilan bisa dirubah tp karakter? Itu akan muncul dg sendirinya." — aku, 12.09.26, 08.41 pagi</p>
+</section>
+
+<section class="wrap letter-sec" aria-labelledby="lt">
+  <span class="eyebrow">ada surat buat kamu</span>
+  <h2 id="lt">buka pelan-pelan ya</h2>
+  <button class="envelope" id="env" aria-expanded="false" aria-controls="letterWrap">
+    <span class="flap"></span><span class="seal">P</span><span class="to">untuk: fakhry, bocilku</span>
+  </button>
+  <p class="hint" id="hint">tap amplopnya 💌</p>
+  <div class="letter-wrap" id="letterWrap">
+    <div>
+      <article class="letter">
+        <span class="tape"></span>
+        <p>Happy birthday sayangkuu, ganteng aku, bocil jawir aku 🤍</p>
+        <p>Lucu ya kalo diinget. Awalnya kamu chat cuma mau nanya lomba sama bootcamp, terus aku sok-sokan jadi consultant kamu. Aku juga sempet bilang "gada pacar, mau pokus". Eh sekarang malah aku yang paling sering nungguin chat "byy" dari kamu.</p>
+        <p>Makasih ya udah sabar sama aku, udah mau ngalah, udah mau jelasin pelan-pelan tiap kita salah paham. Makasih udah nemenin aku sampe tidur, udah rela pulang lebih sore biar bisa ketemu, dan udah maksa aku tidur pas aku bandel. Kamu ga pernah ngekang mimpi-mimpi aku, jadi aku tetep bisa terbang. Itu mahal banget buat aku.</p>
+        <p>Aku tau tahun ini kamu juga capek: kuliah, bisnis, lomba, semuanya kamu kejar barengan. Aku bangga banget sama kamu. Tapi jangan lupa jaga badan ya, jangan sampe mimisan lagi. Kamu boleh cerita apa aja ke aku, ga usah minta maaf tiap kali sedih. Kita bangun kepercayaan ini sama-sama yaa.</p>
+        <p>Semoga panjang umur, sehat selalu, rezekinya lancar, coffee shop & semua mimpinya kesampean. Semoga makin dewasa (dikit aja, aku masih suka versi bocilnya). Aku selalu doain yang terbaik buat kamu.</p>
+        <p>Maaf ya hadiahnya belom dateng, anggep aja web ini cicilan pertamanya wkwk. Peyuk jauh dulu 🫂</p>
+        <p class="sign">sayang kamu selalu,<br>pau / abell kamu 🤍</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="tk">
+  <div class="ticket">
+    <div class="main">
+      <span class="eyebrow">admit two · no refund</span>
+      <h3 id="tk">pau & fakhry: the sequel</h3>
+      <dl>
+        <div><dt>studio</dt><dd>3</dd></div>
+        <div><dt>tanggal</dt><dd>14.11.26</dd></div>
+        <div><dt>kursi</dt><dd>sebelahan</dd></div>
+        <div><dt>durasi</dt><dd>selamanya</dd></div>
+      </dl>
+    </div>
+    <div class="stub"><div><b>3</b><span>berlaku seumur hidup</span></div></div>
+  </div>
+
+  <div class="wish">
+    <button class="cake" id="cake" aria-label="Tiup lilin">
+      <span class="flames"><span class="candle"></span><span class="candle"></span><span class="candle"></span></span>
+      <span class="tier"></span><span class="tier big"></span>
+    </button>
+    <p id="wishText">make a wish dulu, terus tap kuenya buat tiup lilin 🎂</p>
+  </div>
+</section>
+
+<footer class="wrap">
+  dibikin pake banyak sayang (dan sedikit begadang) sama pau
+  <small>05.08.26 → selamanya</small>
+</footer>
+
+<dialog id="lb" aria-label="Foto"><img id="lbImg" alt=""><p id="lbCap"></p><button id="lbClose">tutup</button></dialog>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<script>
+const photos=[
+ ["01","rawr, mode galak","4/3"],["02","aku cakep, kamu cemberut","4/3"],["03","sayang muka kamu kenapa 😭","4/3"],
+ ["04","ngantuk apa ngambek?","4/3"],["05","duo sangar","4/3"],["06","pamer hasil photobox","3/4"],
+ ["07","melet berjamaah","3/4"],["08","sushi date!","4/3"],["09","nunjuk-nunjuk sushi","4/3"],
+ ["10","duck face combo","4/3"],["11","tiket studio 3","4/3"],["12","malu, ketutupan tiket","4/3"],
+ ["13","lift lantai 'kita'","3/4"],["14","kaget mau nonton","4/3"],["15","senyum ganteng (langka)","4/3"],
+ ["16","koboi & kucing","2/3"],["17","AAAAA 🤠🐱","2/3"],["18","selfie time strip","2/3"]
+];
+const groups={w1:[5,12,15,16,6,7,8,9],w2:[10,11,13,14],w3:[0,1,2,3,4]};
+const rots=[-4,3,-2,5,-3,2,-5,4,-1];
+let k=0;
+for(const [id,list] of Object.entries(groups)){
+  const el=document.getElementById(id);
+  list.forEach(i=>{
+    const [f,cap,ar]=photos[i];
+    const b=document.createElement("button");
+    b.className="polaroid";b.dataset.i=i;b.style.setProperty("--r",rots[k++%rots.length]+"deg");
+    b.innerHTML=`<span class="tape" style="top:-12px;left:${20+(k*17)%45}%;transform:rotate(${(k%2?-1:1)*(4+k%5)}deg)"></span><img src="img/${f}.jpg" alt="${cap}" loading="lazy" style="--ar:${ar==='2/3'?'3/4':ar}"><span class="cap">${cap}</span>`;
+    el.appendChild(b);
+  });
+}
+// lightbox
+const lb=document.getElementById("lb"),lbImg=document.getElementById("lbImg"),lbCap=document.getElementById("lbCap");
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-i]");if(!t)return;
+  const [f,cap]=photos[+t.dataset.i];lbImg.src=`img/${f}.jpg`;lbImg.alt=cap;lbCap.textContent=cap;
+  lb.showModal?lb.showModal():lb.setAttribute("open","");
+});
+document.getElementById("lbClose").onclick=()=>lb.close();
+lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
+
+// torn edges on the sleeve
+function tear(el,n=36,d=2.2){let p=[];for(let i=0;i<=n;i++)p.push(`${(i/n*100).toFixed(1)}% ${(Math.random()*d).toFixed(2)}%`);for(let i=n;i>=0;i--)p.push(`${(i/n*100).toFixed(1)}% ${(100-Math.random()*d).toFixed(2)}%`);el.style.clipPath=`polygon(${p.join(",")})`}
+document.querySelectorAll(".sleeve").forEach(s=>tear(s,40,1.6));
+
+// envelope
+const env=document.getElementById("env"),lw=document.getElementById("letterWrap"),hint=document.getElementById("hint");
+env.addEventListener("click",()=>{
+  const open=!env.classList.contains("open");
+  env.classList.toggle("open",open);lw.classList.toggle("show",open);env.setAttribute("aria-expanded",open);
+  hint.textContent=open?"bacanya sambil senyum ya 🤭":"tap amplopnya 💌";
+  if(open){burst(60);setTimeout(()=>lw.scrollIntoView({behavior:"smooth",block:"start"}),500)}
+});
+
+// confetti of paper scraps
+const cv=document.getElementById("confetti"),cx=cv.getContext("2d");let bits=[],raf=0;
+const cols=["#6b3fa0","#b79ee0","#e46a8c","#f6f1e7","#f7f0b5","#24133a"];
+function size(){cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio;cx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}
+addEventListener("resize",size);size();
+function burst(n){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  for(let i=0;i<n;i++)bits.push({x:innerWidth/2+(Math.random()-.5)*200,y:innerHeight*.45,vx:(Math.random()-.5)*12,vy:-Math.random()*14-4,w:6+Math.random()*10,h:4+Math.random()*8,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:cols[i%cols.length],life:0});
+  if(!raf)tick();
+}
+function tick(){
+  cx.clearRect(0,0,innerWidth,innerHeight);
+  bits=bits.filter(b=>b.y<innerHeight+40&&b.life<400);
+  for(const b of bits){b.vy+=.35;b.vx*=.99;b.x+=b.vx;b.y+=b.vy;b.r+=b.vr;b.life++;
+    cx.save();cx.translate(b.x,b.y);cx.rotate(b.r);cx.fillStyle=b.c;cx.fillRect(-b.w/2,-b.h/2,b.w,b.h);cx.restore()}
+  raf=bits.length?requestAnimationFrame(tick):0;
+}
+
+// cake
+const cake=document.getElementById("cake"),wt=document.getElementById("wishText");
+cake.addEventListener("click",()=>{
+  const out=!cake.classList.contains("out");cake.classList.toggle("out",out);
+  if(out){wt.innerHTML='<span class="after">yeay! semoga kekabul semua ya sayang 🤍</span>';burst(160)}
+  else wt.textContent="lilinnya nyala lagi, boleh wish sekali lagi 🎂";
+});
+</script>
+</body>
+</html>
