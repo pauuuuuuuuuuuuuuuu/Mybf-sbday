@@ -7,335 +7,450 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Caveat:wght@500;700&family=Special+Elite&family=Reenie+Beanie&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Homemade+Apple&family=Nothing+You+Could+Do&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Bodoni+Moda:opsz,wght@6..96,900&family=Archivo+Black&display=swap">
 <style>
-/* Layout: a scrapbook on lavender paper — torn strips, taped polaroids, a tracklist sleeve, a letter in an envelope. One deliberate look, no dark mode. */
+/* Layout: a scrapbook laid on lilac linen — kraft card hero, taped polaroids, a paper album insert, torn scraps, a letter on creased paper. One deliberate look, no dark mode. */
 :root{
-  --paper:#e9e0f3;       /* lavender page */
-  --paper-2:#f6f1e7;     /* cream note paper */
-  --ink:#24133a;         /* deep aubergine ink */
-  --violet:#6b3fa0;      /* main purple */
-  --lilac:#b79ee0;       /* soft purple */
-  --rose:#e46a8c;        /* pink pop */
-  --tape:rgba(240,228,190,.78);
-  --display:"Rubik Dirt","Impact","Arial Black",sans-serif;
-  --hand:"Caveat","Reenie Beanie","Comic Sans MS",cursive;
-  --scrawl:"Reenie Beanie","Caveat",cursive;
-  --type:"Special Elite","Courier New",monospace;
+  --linen:#d6cbe2;
+  --cream:#f6f0e4;
+  --ink:#2e2140;          /* fountain-pen aubergine */
+  --plum:#5e3d86;
+  --lilac:#b9a3d9;
+  --blush:#d98ea4;
+  --kraft:#c4a076;
+  --serif:"Instrument Serif","Times New Roman",serif;
+  --hand:"Nothing You Could Do","Bradley Hand","Segoe Print",cursive;
+  --script:"Homemade Apple","Brush Script MT",cursive;
+  --type:"Courier Prime","Courier New",monospace;
   color-scheme:light;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-html{overflow-x:hidden}
-:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--paper)}
-body{
-  background-color:var(--paper);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2  0 0 0 0 .1  0 0 0 0 .3  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  color:var(--ink);font-family:var(--type);font-size:16px;line-height:1.55;
-  overflow-x:hidden;
-}
+html{overflow-x:hidden;background:var(--linen)}
+body{background:var(--linen) url(img/tex/linen.jpg) repeat;background-size:360px;color:var(--ink);font-family:var(--type);font-size:16px;line-height:1.6;overflow-x:hidden}
 img{max-width:100%;display:block}
-.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-section{padding-block:56px}
-h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,7vw,4rem);line-height:.95;margin:0;letter-spacing:.01em;text-wrap:balance}
-.eyebrow{font-family:var(--type);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;color:var(--violet)}
-:focus-visible{outline:3px dashed var(--rose);outline-offset:4px}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:70px}
+:focus-visible{outline:2px dashed var(--plum);outline-offset:5px}
+button{font:inherit;color:inherit}
 
-/* ---------- reusable paper bits ---------- */
-.tape{position:absolute;width:96px;height:28px;background:var(--tape);box-shadow:0 1px 2px rgba(0,0,0,.08);z-index:2;
-  clip-path:polygon(3% 0,97% 4%,100% 50%,96% 100%,2% 96%,0 50%)}
-.torn{filter:drop-shadow(0 6px 10px rgba(36,19,58,.18))}
-.polaroid{position:relative;background:#fffdf8;padding:10px 10px 46px;box-shadow:0 10px 24px rgba(36,19,58,.22),0 1px 0 rgba(0,0,0,.05);
-  transform:rotate(var(--r,0deg));transition:transform .35s cubic-bezier(.2,.8,.2,1.2);cursor:zoom-in;border:0;font:inherit;color:inherit;text-align:left}
-.polaroid img{width:100%;aspect-ratio:var(--ar,4/3);object-fit:cover;background:#ddd}
-.polaroid figcaption,.polaroid .cap{position:absolute;left:12px;right:12px;bottom:8px;font-family:var(--hand);font-size:1.3rem;line-height:1.1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.polaroid:hover,.polaroid:focus-visible{transform:rotate(0deg) scale(1.04);z-index:5}
-.star{position:absolute;color:var(--rose);font-family:var(--display);pointer-events:none}
+/* ---------- materials ---------- */
+.paper{background:var(--cream) url(img/tex/paper.jpg);background-size:400px}
+.kraft{background:var(--kraft) url(img/tex/kraft.jpg);background-size:420px}
+.lilacp{background:#e9def3 url(img/tex/paper-lilac.jpg);background-size:400px}
+.shadow{filter:drop-shadow(0 2px 1px rgba(46,33,64,.12)) drop-shadow(0 12px 18px rgba(46,33,64,.18))}
+/* washi tape */
+.washi{position:absolute;z-index:3;width:110px;height:30px;opacity:.88;mix-blend-mode:multiply;
+  clip-path:polygon(0 8%,4% 0,8% 10%,12% 0,100% 0,96% 12%,100% 25%,96% 40%,100% 55%,96% 72%,100% 88%,97% 100%,0 100%,4% 85%,0 70%,4% 52%,0 35%,4% 20%)}
+.w-gingham{background:
+  linear-gradient(90deg,rgba(217,142,164,.55) 50%,transparent 0) 0 0/12px 12px,
+  linear-gradient(rgba(217,142,164,.55) 50%,transparent 0) 0 0/12px 12px,#f7e3e8}
+.w-dots{background:radial-gradient(circle,#8d6bb8 2px,transparent 2.6px) 0 0/10px 10px,#e6dcf2}
+.w-stripe{background:repeating-linear-gradient(90deg,#c9b6e4 0 7px,#f2ecf8 7px 14px)}
+.w-plain{background:rgba(236,226,200,.92)}
+.w-check{background:conic-gradient(#d9cce9 25%,#f6f1fb 0 50%,#d9cce9 0 75%,#f6f1fb 0) 0 0/14px 14px}
+.flower{position:absolute;pointer-events:none;z-index:4;mix-blend-mode:multiply;opacity:.92;filter:drop-shadow(0 1px 1px rgba(46,33,64,.18))}
+.doodle{position:absolute;pointer-events:none;z-index:4;color:var(--plum)}
+.doodle path{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- type ---------- */
+h2{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(2.8rem,8vw,5.2rem);line-height:.92;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.label{display:inline-block;font-family:var(--type);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase}
+.hand{font-family:var(--hand)}
+.script{font-family:var(--script)}
 
 /* ---------- HERO ---------- */
-.hero{padding-block:36px 64px;position:relative}
-.stamp{display:inline-block;font-family:var(--type);border:2px solid var(--violet);color:var(--violet);padding:4px 12px;transform:rotate(-3deg);letter-spacing:.15em;font-size:.8rem;text-transform:uppercase}
-.ransom{display:flex;flex-wrap:wrap;gap:6px 4px;margin:28px 0 8px;max-width:820px}
-.ransom .word{display:flex;gap:3px;margin-right:14px;padding:0;box-shadow:none;transform:none;font-size:1rem;background:none}
-.ransom span{display:inline-block;font-family:var(--display);font-size:clamp(2.6rem,10vw,6.4rem);line-height:1;padding:.06em .12em .02em;
-  transform:rotate(var(--r,0deg)) translateY(var(--y,0));box-shadow:2px 3px 0 rgba(36,19,58,.18)}
-.ransom .a{background:var(--violet);color:var(--paper-2)}
-.ransom .b{background:var(--paper-2);color:var(--ink);font-family:var(--type)}
-.ransom .c{background:var(--rose);color:#fff}
-.ransom .d{background:var(--ink);color:var(--lilac)}
-.ransom .e{background:var(--lilac);color:var(--ink);font-family:var(--scrawl);font-size:clamp(3rem,11vw,7rem)}
-.hero .sub{font-family:var(--hand);font-size:clamp(1.7rem,4.6vw,2.6rem);line-height:1.1;margin:10px 0 0;color:var(--violet);max-width:620px}
-.hero .sub b{color:var(--rose);font-weight:700}
-.collage{position:relative;display:grid;align-items:start;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;max-width:900px}
-.collage .polaroid:nth-child(2){margin-top:34px}
-.collage .polaroid:nth-child(3){margin-top:8px}
-.strip-band{position:absolute;inset:auto -40px 0 -40px;height:120px;background:var(--lilac);z-index:-1;opacity:.55}
+.hero{padding-block:44px 30px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center}
+.card{position:relative;padding:44px 36px 40px;transform:rotate(-1.2deg)}
+.card .label{color:#4b3622}
+.card .hb{font-family:var(--serif);font-style:italic;font-size:clamp(3.4rem,9vw,6.6rem);line-height:.86;margin:18px 0 6px;color:#2a1c12}
+.ransom{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 0}
+.ransom span{display:inline-grid;place-items:center;min-width:.9em;padding:.05em .14em 0;line-height:1.12;font-size:clamp(2.6rem,8vw,4.6rem);transform:rotate(var(--r)) translateY(var(--y,0));
+  box-shadow:1px 2px 2px rgba(0,0,0,.18);clip-path:polygon(2% 4%,98% 0,100% 94%,96% 100%,0 97%)}
+.r1{font-family:"Bodoni Moda",serif;font-weight:900;background:#1f1726;color:#f1e8f7}
+.r2{font-family:var(--serif);background:#f4ecda url(img/tex/paper.jpg);color:#7a2140;font-style:italic}
+.r3{font-family:"Archivo Black",sans-serif;background:var(--lilac);color:#fff}
+.r4{font-family:var(--type);font-weight:700;background:#efe2c9;color:#2e2140}
+.r5{font-family:var(--script);background:#e9c3cd;color:#2e2140;font-size:clamp(2rem,6vw,3.4rem)!important;padding-top:.25em!important}
+.r6{font-family:"Bodoni Moda",serif;font-weight:900;background:#f8f5ee;color:var(--plum)}
+.card .note{position:relative;margin:30px -6px 0 18%;padding:16px 20px 14px;font-size:1.18rem;line-height:1.5;transform:rotate(2deg)}
+.card .note b{font-weight:400;color:#9b3a5c;text-decoration:underline wavy rgba(155,58,92,.45) 1px;text-underline-offset:4px}
+.collage{position:relative;height:560px}
+.collage .polaroid{position:absolute}
+.collage .p1{width:62%;left:2%;top:10px;--r:-6deg}
+.collage .p2{width:56%;right:0;top:150px;--r:5deg}
+.collage .p3{width:50%;left:14%;top:330px;--r:-2deg}
 
-/* ---------- TRACKLIST SLEEVE ---------- */
-.sleeve{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:0;background:var(--violet);color:var(--paper-2);position:relative;box-shadow:0 18px 40px rgba(36,19,58,.3)}
-.sleeve .cover{position:relative;min-height:320px;overflow:hidden;background:#3b1e5e}
-.sleeve .cover img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25) contrast(1.05) saturate(1.1);mix-blend-mode:luminosity;opacity:.85}
-.sleeve .cover .album{position:absolute;left:18px;bottom:22px;right:16px;font-family:var(--display);font-size:clamp(2.4rem,6vw,3.8rem);line-height:.9;color:var(--paper-2);text-shadow:0 2px 0 var(--ink)}
-.sleeve .cover .album small{display:block;font-family:var(--hand);font-size:1.5rem;color:var(--lilac);text-shadow:none;margin-top:6px}
-.tracks{padding:28px 26px 30px;min-width:0}
-.tracks .eyebrow{color:var(--lilac)}
-.tracks ol{list-style:none;margin:14px 0 0;padding:0;counter-reset:t}
-.tracks li{display:grid;grid-template-columns:2.2em minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:9px 0;border-bottom:1px dashed rgba(246,241,231,.28);counter-increment:t}
-.tracks li::before{content:counter(t,decimal-leading-zero);font-family:var(--type);color:var(--lilac);font-size:.85rem}
-.tracks .t{font-family:var(--hand);font-size:1.45rem;line-height:1.15}
-.tracks .t em{display:block;font-style:normal;font-family:var(--type);font-size:.78rem;color:rgba(246,241,231,.7);margin-top:2px;line-height:1.4}
-.tracks .d{font-family:var(--type);font-size:.8rem;color:var(--lilac);font-variant-numeric:tabular-nums;white-space:nowrap}
-.tracks li.bonus .t{color:#ffd0dc}
-.tracks .foot{margin-top:16px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(246,241,231,.6)}
+/* polaroid */
+.polaroid{display:block;border:0;padding:11px 11px 50px;background:#fbf8f1 url(img/tex/paper.jpg);background-size:300px;cursor:zoom-in;transform:rotate(var(--r,0deg));transition:transform .4s cubic-bezier(.2,.8,.2,1.15);text-align:left;
+  box-shadow:0 1px 1px rgba(46,33,64,.12),0 14px 26px -6px rgba(46,33,64,.32)}
+.polaroid .ph{position:relative;overflow:hidden;background:#ddd}
+.polaroid img{width:100%;aspect-ratio:var(--ar,1/1);object-fit:cover;filter:sepia(.12) saturate(.92) contrast(1.04) brightness(1.02)}
+.polaroid .ph::after{content:"";position:absolute;inset:0;background:url(img/tex/grain.png);opacity:.55;mix-blend-mode:overlay;pointer-events:none;
+  box-shadow:inset 0 0 30px rgba(60,40,20,.18)}
+.polaroid .cap{position:absolute;left:14px;right:14px;bottom:9px;font-family:var(--hand);font-size:1.12rem;line-height:1.2;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.polaroid:hover,.polaroid:focus-visible{transform:rotate(0) scale(1.035);z-index:6}
+.polaroid .washi{top:-14px;left:50%;margin-left:-55px;transform:rotate(var(--wr,-3deg))}
 
-/* ---------- EVIDENCE WALL ---------- */
-.wall-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:30px}
-.wall-head p{font-family:var(--hand);font-size:1.5rem;margin:0;color:var(--violet);max-width:360px;line-height:1.15}
-.day{margin-top:40px}
-.day-label{display:inline-block;background:var(--paper-2);padding:6px 16px 4px;font-family:var(--type);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;transform:rotate(-1.5deg);box-shadow:0 3px 8px rgba(36,19,58,.12);margin-bottom:22px}
-.day-label b{font-family:var(--hand);font-size:1.4rem;text-transform:none;letter-spacing:0;color:var(--rose);margin-left:6px}
-.wall{display:flex;flex-wrap:wrap;justify-content:center;gap:30px 22px}
-.wall .polaroid{width:min(230px,calc(50% - 8px))}
-.wall .polaroid img{aspect-ratio:1/1}
+/* ---------- ALBUM INSERT ---------- */
+.album{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:44px;align-items:start}
+.cover{position:relative;padding:14px;transform:rotate(-2deg)}
+.cover .ph{position:relative}
+.cover img{width:100%;aspect-ratio:1/1;object-fit:cover;filter:grayscale(1) contrast(1.15) brightness(1.03)}
+.cover .ph::after{content:"";position:absolute;inset:0;background:var(--lilac);mix-blend-mode:color;opacity:.55}
+.cover .ttl{position:absolute;left:28px;bottom:26px;color:#fff;font-family:var(--serif);font-style:italic;font-size:clamp(2.6rem,6vw,4rem);line-height:.85;text-shadow:0 1px 12px rgba(30,15,50,.45)}
+.cover .ttl small{display:block;font-family:var(--type);font-style:normal;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;margin-top:10px}
+.clip{position:absolute;top:-22px;left:34px;width:22px;height:66px;border:3px solid #9aa0a8;border-radius:12px;z-index:5;transform:rotate(-8deg);box-shadow:1px 1px 0 rgba(0,0,0,.15)}
+.clip::after{content:"";position:absolute;left:3px;right:3px;top:10px;bottom:-3px;border:3px solid #9aa0a8;border-top:0;border-radius:0 0 8px 8px}
+.sticker{position:absolute;right:-14px;top:-18px;width:96px;height:96px;border-radius:50%;background:var(--blush);color:#fff;display:grid;place-items:center;text-align:center;
+  font-family:var(--type);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.3;transform:rotate(12deg);box-shadow:0 3px 6px rgba(0,0,0,.18);z-index:5}
+.sticker b{display:block;font-family:var(--serif);font-style:italic;font-size:1.5rem;letter-spacing:0;text-transform:none;font-weight:400}
+.insert{position:relative;padding:34px 34px 30px}
+.insert .washi{top:-14px;right:40px}
+.insert header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1.5px solid var(--ink);padding-bottom:10px;flex-wrap:wrap}
+.insert header h2{font-size:clamp(2.4rem,6vw,3.6rem)}
+.insert ol{list-style:none;padding:0;margin:8px 0 0;counter-reset:t}
+.insert li{display:grid;grid-template-columns:2.2em minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px dotted rgba(46,33,64,.35);counter-increment:t}
+.insert li::before{content:counter(t,decimal-leading-zero);font-size:.8rem;color:var(--plum)}
+.insert .t{font-family:var(--serif);font-size:1.35rem;line-height:1.15}
+.insert .t i{font-style:italic}
+.insert .t em{display:block;font-family:var(--hand);font-style:normal;font-size:1rem;color:#6b5a80;margin-top:4px;line-height:1.35}
+.insert .d{font-size:.8rem;font-variant-numeric:tabular-nums;color:var(--plum)}
+.insert li.bonus .t{color:#8c2f52}
+.insert .foot{margin:16px 0 0;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#6b5a80}
 
-/* ---------- PHOTOSTRIP ---------- */
-.stripbox{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center}
-.photostrip{position:relative;transform:rotate(2.5deg);background:#111;padding:8px;box-shadow:0 18px 40px rgba(36,19,58,.35);max-width:420px;justify-self:center;cursor:zoom-in;border:0}
-.photostrip img{width:100%}
-.photostrip .tape{top:-12px;left:50%;margin-left:-48px;transform:rotate(-4deg)}
-.stripnote{background:var(--paper-2);padding:28px 26px;position:relative;transform:rotate(-1deg);box-shadow:0 10px 26px rgba(36,19,58,.15)}
-.stripnote p{font-family:var(--hand);font-size:1.55rem;line-height:1.3;margin:12px 0 0}
-.stripnote .tape{top:-14px;left:24px;transform:rotate(-8deg)}
+/* ---------- WALL ---------- */
+.sec-head{position:relative;display:flex;flex-wrap:wrap;gap:16px 40px;align-items:end;justify-content:space-between;margin-bottom:24px}
+.sec-head .aside{font-family:var(--hand);font-size:1.2rem;line-height:1.45;max-width:330px;margin:0;padding:14px 18px;transform:rotate(1.5deg);position:relative}
+.day{margin-top:50px}
+.tag{display:inline-flex;align-items:center;gap:10px;padding:8px 18px 7px 26px;font-family:var(--type);font-weight:700;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#3b2a18;transform:rotate(-1.5deg);
+  clip-path:polygon(10px 0,100% 0,100% 100%,10px 100%,0 50%);margin-bottom:28px}
+.tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--linen);box-shadow:inset 0 1px 1px rgba(0,0,0,.3)}
+.tag i{font-family:var(--hand);font-style:normal;font-weight:400;text-transform:none;letter-spacing:0;font-size:1.05rem;color:#7a2140}
+.wall{display:flex;flex-wrap:wrap;justify-content:center;gap:40px 26px}
+.wall .polaroid{width:min(236px,calc(50% - 13px))}
 
-/* ---------- LIKES (sticky notes) ---------- */
-.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:22px;margin-top:30px}
-.note{position:relative;padding:26px 18px 20px;font-family:var(--hand);font-size:1.45rem;line-height:1.15;min-height:130px;box-shadow:0 8px 16px rgba(36,19,58,.15);transform:rotate(var(--r,0deg))}
-.note:nth-child(4n+1){background:#f7f0b5}
-.note:nth-child(4n+2){background:#f6cfdb}
-.note:nth-child(4n+3){background:#d9cdf2}
-.note:nth-child(4n+4){background:var(--paper-2)}
-.note .tape{top:-12px;left:50%;margin-left:-40px;width:80px;transform:rotate(3deg)}
-.quote{margin-top:34px;font-family:var(--type);font-size:.95rem;max-width:62ch;border-left:3px solid var(--rose);padding-left:16px;color:var(--violet)}
+/* ---------- STRIP ---------- */
+.stripbox{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center}
+.photostrip{position:relative;border:0;padding:9px;background:#141016;transform:rotate(3deg);max-width:400px;justify-self:center;cursor:zoom-in;box-shadow:0 18px 34px -8px rgba(30,15,50,.45)}
+.photostrip .clip{left:auto;right:40px}
+.index{position:relative;padding:30px 30px 26px;transform:rotate(-1.5deg);
+  background:#fbf8f1 url(img/tex/paper.jpg);background-size:360px;
+  background-image:linear-gradient(transparent 62px,rgba(217,142,164,.7) 62px 64px,transparent 64px),repeating-linear-gradient(transparent 0 31px,rgba(110,140,190,.35) 31px 32px),url(img/tex/paper.jpg)}
+.index .washi{top:-14px;left:30px;--wr:-6deg;transform:rotate(-6deg)}
+.index h2{font-size:clamp(2.4rem,6vw,3.6rem);margin-top:6px}
+.index p{font-family:var(--hand);font-size:1.15rem;line-height:32px;margin:14px 0 0}
+
+/* ---------- SCRAPS ---------- */
+.scraps{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:30px 24px;margin-top:36px}
+.scrap{position:relative;padding:28px 22px 22px;font-family:var(--hand);font-size:1.12rem;line-height:1.5;transform:rotate(var(--r,0deg))}
+.scrapbox>.washi{top:-13px;left:50%;margin-left:-45px;width:90px;transform:rotate(var(--wr,3deg))}
+.doodle.hide-sm{}
+.scrap.kraft{color:#2a1c12}
+.quote{margin:44px 0 0;max-width:62ch;font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.25}
+.quote cite{display:block;font-family:var(--type);font-style:normal;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;margin-top:12px;color:var(--plum)}
 
 /* ---------- LETTER ---------- */
 .letter-sec{text-align:center}
-.envelope{position:relative;width:min(420px,100%);aspect-ratio:3/2;margin:34px auto 0;background:var(--lilac);border:0;cursor:pointer;box-shadow:0 18px 36px rgba(36,19,58,.25);font:inherit;color:inherit;padding:0;display:block}
-.envelope::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right,transparent 49.5%,rgba(107,63,160,.35) 50%,transparent 50.5%),linear-gradient(to bottom left,transparent 49.5%,rgba(107,63,160,.35) 50%,transparent 50.5%)}
-.envelope .flap{position:absolute;left:0;right:0;top:0;height:58%;background:var(--violet);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .6s ease}
-.envelope .seal{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-40px 0 0 -32px;border-radius:50%;background:var(--rose);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:1.6rem;box-shadow:0 3px 0 rgba(0,0,0,.15);z-index:2}
-.envelope .to{position:absolute;left:0;right:0;bottom:16px;font-family:var(--hand);font-size:1.5rem;color:var(--ink)}
-.envelope{transition:margin-top .6s ease}
-.envelope.open{margin-top:min(200px,42vw)}
+.envelope{position:relative;display:block;width:min(440px,100%);aspect-ratio:3/2;margin:40px auto 0;border:0;padding:0;cursor:pointer;transition:margin-top .6s ease;
+  background:var(--kraft) url(img/tex/kraft.jpg);background-size:400px;box-shadow:0 2px 1px rgba(0,0,0,.1),0 22px 34px -10px rgba(46,33,64,.45)}
+.envelope::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(to top right,transparent calc(50% - 1px),rgba(70,45,20,.28) 50%,transparent calc(50% + 1px)) left bottom/50% 100% no-repeat,
+  linear-gradient(to top left,transparent calc(50% - 1px),rgba(70,45,20,.28) 50%,transparent calc(50% + 1px)) right bottom/50% 100% no-repeat}
+.flap{position:absolute;inset:0 0 auto 0;height:56%;background:#b8936a url(img/tex/kraft.jpg);background-size:400px;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s ease;filter:brightness(.94)}
+.seal{position:absolute;left:50%;top:56%;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:47% 53% 50% 48%;z-index:2;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 30%,#a06cc4,#5e3d86 55%,#3d2459);box-shadow:0 2px 3px rgba(0,0,0,.35),inset 0 -3px 6px rgba(0,0,0,.3);
+  font-family:var(--serif);font-style:italic;font-size:2rem;color:#d9c3ef;text-shadow:0 -1px 0 rgba(0,0,0,.4);transition:opacity .3s}
+.envelope .to{position:absolute;left:0;right:0;bottom:16px;font-family:var(--script);font-size:1rem;color:#3b2a18}
+.envelope.open{margin-top:min(230px,44vw)}
 .envelope.open .flap{transform:rotateX(180deg)}
-.envelope.open .seal{opacity:0;transition:opacity .3s}
-.hint{font-family:var(--hand);font-size:1.3rem;color:var(--violet);margin-top:14px}
-.letter{text-align:left;max-width:680px;margin:40px auto 0;background-color:var(--paper-2);
-  background-image:repeating-linear-gradient(to bottom,transparent 0 33px,rgba(107,63,160,.18) 33px 34px),linear-gradient(to right,transparent 52px,rgba(228,106,140,.45) 52px 54px,transparent 54px);
-  padding:40px 26px 40px 70px;position:relative;box-shadow:0 18px 40px rgba(36,19,58,.22);transform:rotate(-.6deg)}
-.letter .tape{top:-14px;right:40px;transform:rotate(6deg)}
-.letter p{font-family:var(--hand);font-size:1.5rem;line-height:34px;margin:0 0 34px}
-.letter p:last-child{margin-bottom:0}
-.letter .sign{text-align:right;color:var(--violet);font-size:1.8rem}
-.letter-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .9s ease}
+.envelope.open .seal{opacity:0}
+.hint{font-family:var(--hand);font-size:1.15rem;margin-top:16px}
+.letter-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows 1s ease}
 .letter-wrap.show{grid-template-rows:1fr}
-.letter-wrap > div{overflow:hidden;padding-inline:8px;padding-bottom:30px}
+.letter-wrap>div{overflow:hidden;padding:20px 10px 40px}
+.letter{position:relative;text-align:left;max-width:700px;margin:0 auto;padding:54px 40px 50px 76px;transform:rotate(-.8deg);
+  background-color:#f8f3e9;background-image:
+   linear-gradient(90deg,transparent 56px,rgba(217,142,164,.75) 56px 58px,transparent 58px),
+   repeating-linear-gradient(transparent 0 35px,rgba(110,140,190,.32) 35px 36px),
+   url(img/tex/crumpled.jpg);background-size:auto,auto,cover;background-position:0 0,0 18px,center;
+  -webkit-mask:radial-gradient(circle 7px at 24px 50%,transparent 6.5px,#000 7.5px) 0 0/100% 38px;mask:radial-gradient(circle 7px at 24px 50%,transparent 6.5px,#000 7.5px) 0 0/100% 38px}
+.letter-shadow{filter:drop-shadow(0 3px 2px rgba(46,33,64,.15)) drop-shadow(0 20px 26px rgba(46,33,64,.25))}
+.letter p{font-family:var(--hand);font-size:1.22rem;line-height:36px;margin:0 0 36px}
+.letter .open-line{font-family:var(--script);font-size:1.25rem}
+.letter .sign{text-align:right;margin:0}
+.letter .sign span{display:block;font-family:var(--script);font-size:1.5rem;color:var(--plum);margin-top:4px}
 
-/* ---------- TICKET + WISH ---------- */
-.ticket{display:grid;grid-template-columns:minmax(0,1fr) 150px;max-width:640px;margin:0 auto;background:var(--paper-2);box-shadow:0 14px 30px rgba(36,19,58,.2);transform:rotate(1deg);position:relative;
-  -webkit-mask:radial-gradient(circle 14px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 14px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;
-          mask:radial-gradient(circle 14px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 14px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat}
-.ticket .main{padding:22px 26px;border-right:2px dashed rgba(36,19,58,.3);min-width:0}
-.ticket .main .eyebrow{color:var(--rose)}
-.ticket .main h3{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,5vw,2.6rem);margin:6px 0 10px;line-height:1}
-.ticket dl{display:grid;grid-template-columns:repeat(4,auto);gap:4px 18px;margin:0;font-size:.8rem}
-.ticket dt{text-transform:uppercase;letter-spacing:.1em;color:var(--violet);font-size:.68rem}
-.ticket dd{margin:0;font-variant-numeric:tabular-nums}
-.ticket .stub{display:grid;place-items:center;text-align:center;padding:16px}
-.ticket .stub>div{display:flex;flex-direction:column;align-items:center;gap:4px}
-.ticket .stub b{font-family:var(--display);font-size:4rem;line-height:1;color:var(--violet);font-weight:400}
-.ticket .stub span{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
-.wish{margin-top:56px;text-align:center}
-.cake{font-size:0;display:inline-flex;flex-direction:column;align-items:center;gap:0;border:0;background:none;cursor:pointer;padding:10px}
-.flames{display:flex;gap:18px;height:38px;align-items:end}
-.candle{width:10px;height:34px;background:repeating-linear-gradient(45deg,var(--rose) 0 6px,var(--paper-2) 6px 12px);position:relative;border-radius:2px}
-.candle::before{content:"";position:absolute;left:50%;top:-20px;width:14px;height:20px;margin-left:-7px;background:radial-gradient(ellipse at 50% 70%,#fff3b0 0 30%,#ffb347 55%,transparent 72%);border-radius:50% 50% 45% 45%;animation:flick .25s infinite alternate}
-.cake.out .candle::before{opacity:0;transition:opacity .2s}
-.tier{width:200px;height:56px;background:var(--lilac);border-radius:6px 6px 0 0;position:relative}
-.tier::after{content:"";position:absolute;left:0;right:0;top:0;height:16px;background:radial-gradient(circle at 10px 0,var(--paper-2) 10px,transparent 11px) 0 0/20px 16px repeat-x}
-.tier.big{width:250px;height:70px;background:var(--violet);border-radius:6px 6px 4px 4px}
-.wish p{font-family:var(--hand);font-size:1.7rem;margin:14px 0 0;color:var(--violet)}
-.wish .after{color:var(--rose);font-size:2.1rem}
-@keyframes flick{to{transform:scale(1.08,.92) translateY(1px)}}
+/* ---------- TICKET + CAKE ---------- */
+.ticket{display:grid;grid-template-columns:minmax(0,1fr) 140px;max-width:660px;margin:0 auto;transform:rotate(1.2deg);
+  -webkit-mask:radial-gradient(circle 13px at 0 50%,transparent 12.5px,#000 13.5px) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% 50%,transparent 12.5px,#000 13.5px) right/51% 100% no-repeat;
+          mask:radial-gradient(circle 13px at 0 50%,transparent 12.5px,#000 13.5px) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% 50%,transparent 12.5px,#000 13.5px) right/51% 100% no-repeat}
+.ticket .main{padding:24px 30px;border-right:2px dashed rgba(46,33,64,.35);min-width:0}
+.ticket h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(2rem,5vw,2.8rem);line-height:1;margin:8px 0 14px}
+.ticket dl{display:grid;grid-template-columns:repeat(4,auto);gap:2px 20px;margin:0;font-size:.85rem}
+.ticket dt{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--plum)}
+.ticket dd{margin:0}
+.ticket .stub{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px;text-align:center}
+.ticket .stub b{font-family:var(--serif);font-size:4.4rem;line-height:.8;font-weight:400}
+.ticket .stub span{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase}
+.wish{margin-top:70px;text-align:center}
+.cake{border:0;background:none;cursor:pointer;padding:6px;width:min(260px,70vw)}
+.cake svg{width:100%;height:auto;overflow:visible}
+.cake .ink{fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.cake .flame{fill:#f2b84b;transform-box:fill-box;transform-origin:50% 100%;animation:flick .3s infinite alternate}
+.cake .glow{fill:#f7dc8b;opacity:.6}
+.cake.out .flame,.cake.out .glow{opacity:0;transition:opacity .25s}
+.cake .smoke{opacity:0;fill:none;stroke:#8a7c99;stroke-width:1.6;stroke-linecap:round}
+.cake.out .smoke{opacity:.7;transition:opacity .4s .2s}
+.wish p{font-family:var(--hand);font-size:1.3rem;margin:14px 0 0}
+.wish .after{font-family:var(--script);font-size:1.25rem;color:#8c2f52}
+@keyframes flick{to{transform:scale(1.1,.88) rotate(3deg)}}
 
-footer{padding-block:40px 60px;text-align:center;font-family:var(--hand);font-size:1.4rem;color:var(--violet)}
-footer small{display:block;font-family:var(--type);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);opacity:.6;margin-top:6px}
+footer{background:#5f4580 url(img/tex/linen-dark.jpg);background-size:360px;color:#efe6f8;text-align:center;padding-block:46px 56px;margin-top:40px}
+footer .script{font-size:1.35rem}
+footer small{display:block;margin-top:10px;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;opacity:.75}
 
-/* lightbox */
-dialog{border:0;padding:12px 12px 52px;background:#fffdf8;max-width:min(92vw,900px);max-height:92vh;box-shadow:0 30px 60px rgba(0,0,0,.4)}
-dialog::backdrop{background:rgba(36,19,58,.72)}
-dialog img{max-height:calc(92vh - 80px);width:auto;margin:0 auto}
-dialog p{position:absolute;left:16px;right:60px;bottom:10px;margin:0;font-family:var(--hand);font-size:1.5rem}
-dialog button{position:absolute;right:12px;bottom:10px;border:0;background:var(--violet);color:#fff;font-family:var(--type);padding:6px 12px;cursor:pointer}
+dialog{border:0;padding:12px 12px 54px;background:#fbf8f1 url(img/tex/paper.jpg);max-width:min(92vw,900px);max-height:92vh;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+dialog::backdrop{background:rgba(30,18,46,.78)}
+dialog img{max-height:calc(92vh - 82px);width:auto;margin:0 auto}
+dialog p{position:absolute;left:16px;right:80px;bottom:12px;margin:0;font-family:var(--hand);font-size:1.25rem}
+dialog button{position:absolute;right:12px;bottom:12px;border:1.5px solid var(--ink);background:transparent;font-family:var(--type);padding:4px 12px;cursor:pointer}
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
 
-@media (max-width:720px){
-  .sleeve{grid-template-columns:1fr}
-  .sleeve .cover{min-height:260px}
-  .stripbox{grid-template-columns:1fr}
-  .collage{gap:10px}
-  .collage .polaroid{padding:6px 6px 30px}
-  .collage .cap{font-size:1rem;bottom:6px}
-  .letter{padding:30px 18px 30px 44px;background-image:repeating-linear-gradient(to bottom,transparent 0 33px,rgba(107,63,160,.18) 33px 34px),linear-gradient(to right,transparent 30px,rgba(228,106,140,.45) 30px 32px,transparent 32px)}
-  .ticket{grid-template-columns:minmax(0,1fr) 96px}
+@media (max-width:820px){
+  .hero-grid,.album,.stripbox{grid-template-columns:1fr}
+  .collage{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:28px 14px;padding-top:10px}
+  .collage .polaroid{position:relative;width:auto;left:auto;right:auto;top:auto;padding:8px 8px 36px}
+  .collage .p3{grid-column:1/-1;width:62%;justify-self:center}
+  .collage .cap{font-size:.95rem;bottom:7px}
+  .card{padding:36px 22px 32px}
+  .card .note{margin-left:8%}
+  .insert{padding:28px 20px 24px}
+  .letter{padding:44px 20px 40px 54px;background-image:linear-gradient(90deg,transparent 40px,rgba(217,142,164,.75) 40px 42px,transparent 42px),repeating-linear-gradient(transparent 0 35px,rgba(110,140,190,.32) 35px 36px),url(img/tex/crumpled.jpg);
+    -webkit-mask:radial-gradient(circle 6px at 18px 50%,transparent 5.5px,#000 6.5px) 0 0/100% 38px;mask:radial-gradient(circle 6px at 18px 50%,transparent 5.5px,#000 6.5px) 0 0/100% 38px}
+  .letter p{font-size:1.08rem}
+  .ticket{grid-template-columns:minmax(0,1fr) 92px}
+  .ticket .main{padding:20px 18px}
   .ticket dl{grid-template-columns:repeat(2,auto)}
-  .ticket .stub b{font-size:2.8rem}
-  .wall{gap:22px 14px}
-  .wall .cap{font-size:1.05rem}
+  .ticket .stub b{font-size:3rem}
+  .wall{gap:30px 14px}
+  .wall .polaroid{padding:8px 8px 38px}
+  .wall .cap{font-size:.95rem}
+  .sticker{width:78px;height:78px;right:-4px}
+  .flower.hide-sm{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 
+<!-- pressed flowers & doodles, drawn by hand in SVG -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="daisy" viewBox="0 0 100 100">
+      <g transform="translate(50 50)">
+        <g fill="#fbf7ee" stroke="#d8cdb8" stroke-width=".8">
+          <ellipse rx="7" ry="22" transform="rotate(0) translate(0 -22)"/><ellipse rx="7" ry="22" transform="rotate(30) translate(0 -22)"/><ellipse rx="6.5" ry="21" transform="rotate(62) translate(0 -22)"/>
+          <ellipse rx="7" ry="22" transform="rotate(90) translate(0 -22)"/><ellipse rx="7" ry="20" transform="rotate(121) translate(0 -22)"/><ellipse rx="7" ry="22" transform="rotate(150) translate(0 -22)"/>
+          <ellipse rx="7" ry="22" transform="rotate(182) translate(0 -22)"/><ellipse rx="6.5" ry="21" transform="rotate(210) translate(0 -22)"/><ellipse rx="7" ry="22" transform="rotate(240) translate(0 -21)"/>
+          <ellipse rx="7" ry="22" transform="rotate(271) translate(0 -22)"/><ellipse rx="7" ry="20" transform="rotate(300) translate(0 -22)"/><ellipse rx="7" ry="22" transform="rotate(331) translate(0 -22)"/>
+        </g>
+        <circle r="10" fill="#e8b84a"/><circle r="10" fill="url(#dots)"/>
+      </g>
+    </symbol>
+    <pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".9" fill="#b9822a"/></pattern>
+    <symbol id="lavender" viewBox="0 0 60 200">
+      <path d="M30 198 C31 150 28 110 31 40" stroke="#7d8a5a" stroke-width="2.2" fill="none"/>
+      <path d="M30 150 C20 140 14 132 10 118 M31 130 C40 122 46 112 48 100" stroke="#7d8a5a" stroke-width="1.6" fill="none"/>
+      <g fill="#8c6bb5"><ellipse cx="31" cy="12" rx="4" ry="6"/><ellipse cx="26" cy="22" rx="4.5" ry="6.5" transform="rotate(-20 26 22)"/><ellipse cx="36" cy="24" rx="4.5" ry="6.5" transform="rotate(20 36 24)"/>
+      <ellipse cx="25" cy="36" rx="5" ry="7" transform="rotate(-20 25 36)"/><ellipse cx="37" cy="38" rx="5" ry="7" transform="rotate(20 37 38)"/><ellipse cx="30" cy="30" rx="4" ry="6" fill="#a68acb"/>
+      <ellipse cx="24" cy="52" rx="5" ry="7" transform="rotate(-25 24 52)"/><ellipse cx="38" cy="54" rx="5" ry="7" transform="rotate(25 38 54)"/><ellipse cx="31" cy="46" rx="4" ry="6" fill="#a68acb"/>
+      <ellipse cx="25" cy="70" rx="4.5" ry="6.5" transform="rotate(-25 25 70)"/><ellipse cx="37" cy="72" rx="4.5" ry="6.5" transform="rotate(25 37 72)"/></g>
+    </symbol>
+    <symbol id="forget" viewBox="0 0 100 100">
+      <g fill="#9fb6dd" stroke="#7e95c0" stroke-width=".6">
+        <g transform="translate(36 38)"><circle cx="0" cy="-9" r="8"/><circle cx="8.6" cy="-2.8" r="8"/><circle cx="5.3" cy="7.3" r="8"/><circle cx="-5.3" cy="7.3" r="8"/><circle cx="-8.6" cy="-2.8" r="8"/><circle r="4" fill="#f4e08a" stroke="none"/></g>
+        <g transform="translate(68 56) scale(.8)"><circle cx="0" cy="-9" r="8"/><circle cx="8.6" cy="-2.8" r="8"/><circle cx="5.3" cy="7.3" r="8"/><circle cx="-5.3" cy="7.3" r="8"/><circle cx="-8.6" cy="-2.8" r="8"/><circle r="4" fill="#f4e08a" stroke="none"/></g>
+        <g transform="translate(40 74) scale(.62)"><circle cx="0" cy="-9" r="8"/><circle cx="8.6" cy="-2.8" r="8"/><circle cx="5.3" cy="7.3" r="8"/><circle cx="-5.3" cy="7.3" r="8"/><circle cx="-8.6" cy="-2.8" r="8"/><circle r="4" fill="#f4e08a" stroke="none"/></g>
+      </g>
+    </symbol>
+    <symbol id="sprig" viewBox="0 0 80 160">
+      <path d="M40 158 C42 110 36 70 44 6" stroke="#8a9466" stroke-width="2" fill="none"/>
+      <g fill="#a3ab7e" stroke="#7c8657" stroke-width=".6">
+        <path d="M41 130 C24 126 14 116 12 104 C26 106 36 116 41 130Z"/><path d="M41 112 C58 106 66 94 66 82 C52 86 44 98 41 112Z"/>
+        <path d="M40 90 C24 84 18 72 18 60 C30 64 38 76 40 90Z"/><path d="M42 70 C56 64 62 52 62 40 C50 44 44 56 42 70Z"/>
+        <path d="M42 48 C30 42 26 32 27 22 C36 26 42 36 42 48Z"/><path d="M44 28 C52 22 55 14 54 6 C47 10 44 18 44 28Z"/>
+      </g>
+    </symbol>
+    <symbol id="heart" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 60 56"><path d="M30 52 C14 40 4 30 5 18 C6 8 15 3 23 7 C27 9 29 13 30 16 C31 12 34 7 40 5 C49 3 56 10 55 20 C54 32 42 42 30 52 M28 49 C30 50 32 51 33 52"/></symbol>
+    <symbol id="star" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 60 60"><path d="M30 4 L36 23 L56 24 L40 36 L46 56 L30 44 L13 56 L19 36 L4 24 L24 23 Z M31 6 L33 10"/></symbol>
+    <symbol id="arrow" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 120 70"><path d="M6 10 C30 60 70 66 108 40 M94 34 L109 39 L103 54"/></symbol>
+    <symbol id="swirl" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 120 30"><path d="M4 18 C20 4 30 28 46 14 C60 2 70 28 86 14 C98 4 108 22 116 12"/></symbol>
+  </defs>
+</svg>
+
 <header class="hero wrap">
-  <span class="stamp">14 · 11 · 2026 &nbsp;/&nbsp; edisi spesial</span>
-  <h1 class="ransom" aria-label="Happy Birthday, Fakhry">
-    <span class="word"><span class="a" style="--r:-4deg">H</span><span class="b" style="--r:3deg;--y:4px">a</span><span class="c" style="--r:-2deg">P</span><span class="d" style="--r:5deg;--y:-3px">p</span><span class="e" style="--r:-6deg">y</span></span>
-    <span class="word"><span class="b" style="--r:2deg">B</span><span class="a" style="--r:-5deg;--y:3px">i</span><span class="d" style="--r:4deg">R</span><span class="c" style="--r:-3deg;--y:-2px">t</span><span class="e" style="--r:6deg">h</span><span class="b" style="--r:-2deg;--y:4px">D</span><span class="a" style="--r:3deg">a</span><span class="c" style="--r:-5deg">Y</span></span>
-    <span class="word"><span class="d" style="--r:-3deg">F</span><span class="e" style="--r:4deg;--y:3px">a</span><span class="b" style="--r:-4deg">K</span><span class="a" style="--r:2deg;--y:-4px">h</span><span class="c" style="--r:-2deg">R</span><span class="b" style="--r:5deg">y</span></span>
-  </h1>
-  <p class="sub">buat <b>bocil jawir</b> kesayangan aku, yang dulu chat pertamanya <i>"halo kak pau mau ijin tanya"</i> 🤍</p>
-  <div class="collage">
-    <button class="polaroid" style="--r:-5deg" data-i="16"><span class="tape" style="top:-12px;left:20px;transform:rotate(-10deg)"></span><img src="img/17.jpg" alt="Kita berdua teriak di photobox lift" style="--ar:3/4" loading="eager"><span class="cap">AAAAA 🤠🐱</span></button>
-    <button class="polaroid" style="--r:3deg" data-i="7"><span class="tape" style="top:-12px;right:16px;transform:rotate(8deg)"></span><img src="img/08.jpg" alt="Sushi date" loading="eager"><span class="cap">sushi date!</span></button>
-    <button class="polaroid" style="--r:-2deg" data-i="0"><span class="tape" style="top:-12px;left:30%;transform:rotate(-3deg)"></span><img src="img/01.jpg" alt="Pose cakar galak" loading="eager"><span class="cap">rawr, mode galak</span></button>
+  <div class="hero-grid">
+    <div class="card kraft shadow">
+      <span class="washi w-gingham" style="top:-12px;left:30px;transform:rotate(-5deg)"></span>
+      <span class="washi w-stripe" style="top:-10px;right:20px;width:80px;transform:rotate(7deg)"></span>
+      <span class="label">vol. 1 · edisi 14.11.2026</span>
+      <p class="hb">happy<br>birthday,</p>
+      <h1 class="ransom" aria-label="Fakhry">
+        <span class="r1" style="--r:-4deg">F</span><span class="r2" style="--r:3deg;--y:5px">a</span><span class="r3" style="--r:-2deg">K</span><span class="r5" style="--r:5deg;--y:-4px">h</span><span class="r4" style="--r:-3deg;--y:3px">R</span><span class="r6" style="--r:4deg">y</span>
+      </h1>
+      <div class="note lilacp shadow">
+        <span class="washi w-plain" style="top:-12px;left:20px;width:70px;transform:rotate(-8deg)"></span>
+        buat <b>bocil jawir</b> kesayangan aku, yang chat pertamanya cuma <i>"halo kak pau mau ijin tanya"</i>, terus nyangkut sampe sekarang.
+      </div>
+      <svg class="flower hide-sm" style="width:72px;right:-26px;bottom:-30px;transform:rotate(18deg)"><use href="#daisy"/></svg>
+      <svg class="doodle" style="width:46px;right:26px;top:88px;color:#8c2f52"><use href="#heart"/></svg>
+    </div>
+    <div class="collage">
+      <button class="polaroid p1" data-i="16" style="--ar:3/4"><span class="washi w-dots" style="--wr:-4deg"></span><span class="ph"><img src="img/17.jpg" alt="Kita berdua teriak di photobox lift" style="--ar:3/4"></span><span class="cap">aaaaa (20.10)</span></button>
+      <button class="polaroid p2" data-i="7"><span class="washi w-check" style="--wr:5deg"></span><span class="ph"><img src="img/08.jpg" alt="Sushi date" style="--ar:4/3"></span><span class="cap">sushi date</span></button>
+      <button class="polaroid p3" data-i="0"><span class="washi w-gingham" style="--wr:-2deg"></span><span class="ph"><img src="img/01.jpg" alt="Pose cakar galak" style="--ar:4/3"></span><span class="cap">rawr, mode galak</span></button>
+      <svg class="flower" style="width:54px;height:180px;right:6%;top:-10px;transform:rotate(14deg)"><use href="#lavender"/></svg>
+      <svg class="flower hide-sm" style="width:84px;left:-10px;bottom:20px;transform:rotate(-20deg)"><use href="#forget"/></svg>
+    </div>
   </div>
 </header>
 
 <section class="wrap" aria-labelledby="tl">
-  <div class="sleeve torn">
-    <div class="cover">
-      <img src="img/16.jpg" alt="Kita berdua pakai topi koboi dan topi kucing">
-      <div class="album" id="tl">sayang,<br>the album<small>side A & B · 05.08 → 14.11</small></div>
+  <div class="album">
+    <div class="cover paper shadow">
+      <span class="clip"></span>
+      <span class="sticker"><span>contains<b>bocil</b>100%</span></span>
+      <div class="ph"><img src="img/16.jpg" alt="Kita berdua pakai topi koboi dan topi kucing"></div>
+      <div class="ttl">sayang,<br>the album<small>pau & fakhry · 2026</small></div>
+      <svg class="flower" style="width:66px;height:132px;left:-26px;bottom:-40px;transform:rotate(-24deg)"><use href="#sprig"/></svg>
     </div>
-    <div class="tracks">
-      <span class="eyebrow">tracklist (urut sesuai chat kita)</span>
+    <div class="insert paper shadow">
+      <span class="washi w-stripe" style="transform:rotate(4deg)"></span>
+      <header><h2 id="tl">tracklist</h2><span class="label">side a + b · 05.08 → 14.11</span></header>
       <ol>
-        <li><span class="t">halo kak pau, mau ijin tanya<em>lomba atau bootcamp? terus aku jadi "consultant u anjayyy"</em></span><span class="d">05.08</span></li>
-        <li><span class="t">gada pacar weee, mau pokus<em>kata aku dulu. iya, dulu.</em></span><span class="d">07.08</span></li>
-        <li><span class="t">opicial punya pacar ❌ keterima asah ✅<em>prioritas aku waktu itu wkwk</em></span><span class="d">13.08</span></li>
+        <li><span class="t">halo kak pau, mau ijin tanya<em>lomba atau bootcamp? terus aku jadi consultant kamu, anjayyy</em></span><span class="d">05.08</span></li>
+        <li><span class="t">gada pacar weee, <i>mau pokus</i><em>kata aku dulu. iya, dulu.</em></span><span class="d">07.08</span></li>
+        <li><span class="t">opicial punya pacar ✗ keterima asah ✓<em>prioritas aku waktu itu, wkwk</em></span><span class="d">13.08</span></li>
         <li><span class="t">untung hubungan kita ga putus<em>senar gitar kamu yang putus, bukan kita</em></span><span class="d">22.08</span></li>
-        <li><span class="t">abeell cintakuu sayanggkuu sukaakuu<em>dan "kalo salting gabole kekerasan yaa"</em></span><span class="d">24.08</span></li>
-        <li><span class="t">pajak jadian? kan rak jadian<em>farel duluan yang heboh</em></span><span class="d">18.09</span></li>
-        <li><span class="t">selfie time, topi koboi & kucing<em>plus sushi go sampe kenyang</em></span><span class="d">20.10</span></li>
-        <li><span class="t">tiket studio 3<em>nonton berdua, tiketnya aku simpen</em></span><span class="d">21.10</span></li>
-        <li><span class="t">muka jelek session<em>ubeatz station, sebelah tulisan "sing your truth"</em></span><span class="d">13.11</span></li>
-        <li class="bonus"><span class="t">happy birthday ya, ganteng<em>bonus track · diputer terus</em></span><span class="d">14.11</span></li>
+        <li><span class="t">abeell cintakuu sayanggkuu sukaakuu<em>+ "kalo salting gabole kekerasan yaa"</em></span><span class="d">24.08</span></li>
+        <li><span class="t">pajak jadian? <i>kan rak jadian</i><em>farel duluan yang heboh</em></span><span class="d">18.09</span></li>
+        <li><span class="t">selfie time (koboi & kucing)<em>lanjut sushi go sampe kenyang</em></span><span class="d">20.10</span></li>
+        <li><span class="t">studio 3<em>nonton berdua, tiketnya aku simpen</em></span><span class="d">21.10</span></li>
+        <li><span class="t">muka jelek session<em>di sebelah tulisan "sing your truth"</em></span><span class="d">13.11</span></li>
+        <li class="bonus"><span class="t"><i>happy birthday ya, ganteng</i><em>bonus track · diputer terus</em></span><span class="d">14.11</span></li>
       </ol>
-      <p class="foot">℗ pau & fakhry · semua lagu ditulis lewat whatsapp</p>
+      <p class="foot">℗ 2026 pau & fakhry · semua lagu ditulis lewat whatsapp</p>
     </div>
   </div>
 </section>
 
 <section class="wrap" aria-labelledby="ev">
-  <div class="wall-head">
-    <div><span class="eyebrow">barang bukti</span><h2 id="ev">kita, versi<br>foto random</h2></div>
-    <p>klik fotonya buat liat gede. iya, muka kamu jelek di semuanya. aku tetep suka 😝</p>
+  <div class="sec-head">
+    <div><span class="label">barang bukti</span><h2 id="ev">kita, versi<br>foto random</h2></div>
+    <p class="aside paper shadow"><span class="washi w-plain" style="top:-12px;left:24px;width:70px;transform:rotate(-6deg)"></span>tap fotonya biar gede. muka kamu jelek di semuanya, tapi aku tetep suka.</p>
+    <svg class="doodle hide-sm" style="width:110px;left:44%;bottom:-40px;transform:rotate(8deg)"><use href="#arrow"/></svg>
   </div>
-
-  <div class="day">
-    <span class="day-label">20 oktober <b>photobox & sushi day</b></span>
-    <div class="wall" id="w1"></div>
-  </div>
-  <div class="day">
-    <span class="day-label">21 oktober <b>nonton!</b></span>
-    <div class="wall" id="w2"></div>
-  </div>
-  <div class="day">
-    <span class="day-label">13 november <b>sehari sebelum kamu ultah</b></span>
-    <div class="wall" id="w3"></div>
-  </div>
+  <div class="day"><span class="tag kraft">20 okt <i>photobox & sushi</i></span><div class="wall" id="w1"></div></div>
+  <div class="day"><span class="tag kraft">21 okt <i>nonton</i></span><div class="wall" id="w2"></div></div>
+  <div class="day"><span class="tag kraft">13 nov <i>h-1 ultah kamu</i></span><div class="wall" id="w3"></div></div>
 </section>
 
 <section class="wrap" aria-labelledby="ps">
   <div class="stripbox">
-    <button class="photostrip" data-i="17" aria-label="Lihat photostrip Selfie Time"><span class="tape"></span><img src="img/18.jpg" alt="Photostrip Selfie Time kita, delapan pose"></button>
-    <div class="stripnote">
-      <span class="tape"></span>
-      <span class="eyebrow">now playing · 3:45 / 4:49</span>
+    <button class="photostrip" data-i="17" aria-label="Lihat photostrip Selfie Time"><span class="clip"></span><img src="img/18.jpg" alt="Photostrip Selfie Time kita, delapan pose"></button>
+    <div class="index shadow" style="position:relative">
+      <span class="washi w-dots"></span>
+      <span class="label">now playing · 3:45 / 4:49</span>
       <h2 id="ps">selfie time</h2>
-      <p>8 pose, 2 topi aneh, 1 kecupan di frame terakhir yang bikin aku senyum sendiri tiap liat. kamu sok cool di foto ke-4, padahal aslinya bocil 🤭</p>
+      <p>8 pose, 2 topi aneh, dan 1 kecupan di frame terakhir yang bikin aku senyum sendiri tiap liat. di foto ke-4 kamu sok cool, padahal aslinya bocil.</p>
       <p>fotonya udah aku pajang. pfp aku juga ganti gara-gara ini.</p>
+      <svg class="flower" style="width:70px;right:-20px;bottom:-26px;transform:rotate(12deg)"><use href="#daisy"/></svg>
     </div>
   </div>
 </section>
 
 <section class="wrap" aria-labelledby="lk">
-  <span class="eyebrow">ditulis ulang dari chat 12 september</span>
-  <h2 id="lk">hal-hal yang bikin aku sayang kamu</h2>
-  <div class="notes">
-    <div class="note" style="--r:-2deg"><span class="tape"></span>kamu tanggung jawab, dan effort kamu buat aku keliatan banget</div>
-    <div class="note" style="--r:2deg"><span class="tape"></span>rela pulang lebih sore cuma biar bisa ketemu aku</div>
-    <div class="note" style="--r:-1deg"><span class="tape"></span>nemenin aku sampe ketiduran (walaupun abis itu kamu mimisan 🥺)</div>
-    <div class="note" style="--r:3deg"><span class="tape"></span>beliin bunga, makanan, minuman, tanpa disuruh</div>
-    <div class="note" style="--r:-3deg"><span class="tape"></span>mau ngalah, mau jelasin pelan-pelan pas kita salah paham</div>
-    <div class="note" style="--r:1deg"><span class="tape"></span>ga kabur pas ada masalah. balik lagi ke binus pas kita marahan</div>
-    <div class="note" style="--r:-2deg"><span class="tape"></span>ga posesif sama mimpi-mimpi aku, jadi sayap aku tetep ada</div>
-    <div class="note" style="--r:2deg"><span class="tape"></span>pekerja keras, ambis, bocil b30 yang punya bisnis sendiri</div>
+  <span class="label">disalin dari chat 12 september</span>
+  <h2 id="lk">hal-hal yang bikin<br>aku sayang kamu</h2>
+  <div class="scraps">
+    <div class="scrap paper shadow" style="--r:-2deg"><span class="washi w-gingham"></span>kamu tanggung jawab, dan effort kamu buat aku keliatan banget</div>
+    <div class="scrap kraft shadow" style="--r:2deg"><span class="washi w-plain" style="--wr:-4deg"></span>rela pulang lebih sore cuma biar bisa ketemu aku</div>
+    <div class="scrap lilacp shadow" style="--r:-1deg"><span class="washi w-stripe"></span>nemenin aku sampe ketiduran, walaupun abis itu kamu mimisan</div>
+    <div class="scrap paper shadow" style="--r:3deg"><span class="washi w-check" style="--wr:-2deg"></span>beliin bunga, makanan, minuman, tanpa disuruh</div>
+    <div class="scrap lilacp shadow" style="--r:-3deg"><span class="washi w-dots"></span>mau ngalah, mau jelasin pelan-pelan pas kita salah paham</div>
+    <div class="scrap paper shadow" style="--r:1deg"><span class="washi w-gingham" style="--wr:-5deg"></span>ga kabur pas ada masalah. balik lagi ke binus pas kita marahan</div>
+    <div class="scrap kraft shadow" style="--r:-2deg"><span class="washi w-stripe" style="--wr:2deg"></span>ga posesif sama mimpi-mimpi aku, jadi sayap aku tetep ada</div>
+    <div class="scrap paper shadow" style="--r:2deg"><span class="washi w-plain"></span>pekerja keras, ambis, bocil b30 yang udah punya bisnis sendiri</div>
   </div>
-  <p class="quote">"Mgkin penampilan bisa dirubah tp karakter? Itu akan muncul dg sendirinya." — aku, 12.09.26, 08.41 pagi</p>
+  <blockquote class="quote">"Mungkin penampilan bisa dirubah, tapi karakter? Itu akan muncul dengan sendirinya."<cite>aku, 12.09.26 · 08.41 pagi</cite></blockquote>
 </section>
 
 <section class="wrap letter-sec" aria-labelledby="lt">
-  <span class="eyebrow">ada surat buat kamu</span>
+  <span class="label">ada surat buat kamu</span>
   <h2 id="lt">buka pelan-pelan ya</h2>
   <button class="envelope" id="env" aria-expanded="false" aria-controls="letterWrap">
-    <span class="flap"></span><span class="seal">P</span><span class="to">untuk: fakhry, bocilku</span>
+    <span class="flap"></span><span class="seal">p</span><span class="to">untuk fakhry, bocilku</span>
   </button>
-  <p class="hint" id="hint">tap amplopnya 💌</p>
+  <p class="hint" id="hint">tap amplopnya</p>
   <div class="letter-wrap" id="letterWrap">
-    <div>
+    <div class="letter-shadow">
       <article class="letter">
-        <span class="tape"></span>
-        <p>Happy birthday sayangkuu, ganteng aku, bocil jawir aku 🤍</p>
-        <p>Lucu ya kalo diinget. Awalnya kamu chat cuma mau nanya lomba sama bootcamp, terus aku sok-sokan jadi consultant kamu. Aku juga sempet bilang "gada pacar, mau pokus". Eh sekarang malah aku yang paling sering nungguin chat "byy" dari kamu.</p>
+        <p class="open-line">Happy birthday sayangkuu,</p>
+        <p>ganteng aku, bocil jawir aku. Lucu ya kalo diinget. Awalnya kamu chat cuma mau nanya lomba sama bootcamp, terus aku sok-sokan jadi consultant kamu. Aku juga sempet bilang "gada pacar, mau pokus". Eh sekarang malah aku yang paling sering nungguin chat "byy" dari kamu.</p>
         <p>Makasih ya udah sabar sama aku, udah mau ngalah, udah mau jelasin pelan-pelan tiap kita salah paham. Makasih udah nemenin aku sampe tidur, udah rela pulang lebih sore biar bisa ketemu, dan udah maksa aku tidur pas aku bandel. Kamu ga pernah ngekang mimpi-mimpi aku, jadi aku tetep bisa terbang. Itu mahal banget buat aku.</p>
-        <p>Aku tau tahun ini kamu juga capek: kuliah, bisnis, lomba, semuanya kamu kejar barengan. Aku bangga banget sama kamu. Tapi jangan lupa jaga badan ya, jangan sampe mimisan lagi. Kamu boleh cerita apa aja ke aku, ga usah minta maaf tiap kali sedih. Kita bangun kepercayaan ini sama-sama yaa.</p>
-        <p>Semoga panjang umur, sehat selalu, rezekinya lancar, coffee shop & semua mimpinya kesampean. Semoga makin dewasa (dikit aja, aku masih suka versi bocilnya). Aku selalu doain yang terbaik buat kamu.</p>
-        <p>Maaf ya hadiahnya belom dateng, anggep aja web ini cicilan pertamanya wkwk. Peyuk jauh dulu 🫂</p>
-        <p class="sign">sayang kamu selalu,<br>pau / abell kamu 🤍</p>
+        <p>Aku tau tahun ini kamu juga capek: kuliah, bisnis, lomba, semuanya kamu kejar barengan. Aku bangga banget sama kamu. Tapi jaga badan ya, jangan sampe mimisan lagi. Kamu boleh cerita apa aja ke aku, ga usah minta maaf tiap kali sedih. Kita bangun kepercayaan ini sama-sama yaa.</p>
+        <p>Semoga panjang umur, sehat selalu, rezekinya lancar, coffee shop dan semua mimpinya kesampean. Semoga makin dewasa (dikit aja, aku masih suka versi bocilnya). Aku selalu doain yang terbaik buat kamu.</p>
+        <p>Maaf ya hadiahnya belom dateng, anggep aja web ini cicilan pertamanya, wkwk. Peyuk jauh dulu.</p>
+        <p class="sign">sayang kamu selalu,<span>pau, abell kamu</span></p>
+        <svg class="flower" style="width:60px;height:120px;right:24px;bottom:70px;transform:rotate(20deg);opacity:.75"><use href="#lavender"/></svg>
       </article>
     </div>
   </div>
 </section>
 
 <section class="wrap" aria-labelledby="tk">
-  <div class="ticket">
-    <div class="main">
-      <span class="eyebrow">admit two · no refund</span>
-      <h3 id="tk">pau & fakhry: the sequel</h3>
-      <dl>
-        <div><dt>studio</dt><dd>3</dd></div>
-        <div><dt>tanggal</dt><dd>14.11.26</dd></div>
-        <div><dt>kursi</dt><dd>sebelahan</dd></div>
-        <div><dt>durasi</dt><dd>selamanya</dd></div>
-      </dl>
+  <div class="shadow">
+    <div class="ticket paper">
+      <div class="main">
+        <span class="label" style="color:#8c2f52">admit two · no refund</span>
+        <h3 id="tk">pau & fakhry: the sequel</h3>
+        <dl>
+          <div><dt>studio</dt><dd>3</dd></div>
+          <div><dt>tanggal</dt><dd>14.11.26</dd></div>
+          <div><dt>kursi</dt><dd>sebelahan</dd></div>
+          <div><dt>durasi</dt><dd>selamanya</dd></div>
+        </dl>
+      </div>
+      <div class="stub"><b>3</b><span>berlaku seumur hidup</span></div>
     </div>
-    <div class="stub"><div><b>3</b><span>berlaku seumur hidup</span></div></div>
   </div>
 
   <div class="wish">
     <button class="cake" id="cake" aria-label="Tiup lilin">
-      <span class="flames"><span class="candle"></span><span class="candle"></span><span class="candle"></span></span>
-      <span class="tier"></span><span class="tier big"></span>
+      <svg viewBox="0 0 240 200">
+        <ellipse class="glow" cx="90" cy="30" rx="16" ry="20"/><ellipse class="glow" cx="120" cy="24" rx="16" ry="20"/><ellipse class="glow" cx="150" cy="30" rx="16" ry="20"/>
+        <path class="flame" d="M90 20 C84 30 86 40 90 42 C95 40 96 30 90 20Z"/><path class="flame" d="M120 14 C114 24 116 34 120 36 C125 34 126 24 120 14Z"/><path class="flame" d="M150 20 C144 30 146 40 150 42 C155 40 156 30 150 20Z"/>
+        <path class="smoke" d="M90 36 C84 26 96 18 90 6 M120 30 C114 20 126 12 120 0 M150 36 C144 26 156 18 150 6"/>
+        <path class="ink" d="M86 46 L87 82 L94 82 L93 46 Z M116 40 L117 78 L124 78 L123 40 Z M146 46 L147 82 L154 82 L153 46 Z"/>
+        <path class="ink" d="M88 54 L92 58 M88 64 L92 68 M118 50 L122 54 M118 60 L122 64 M148 54 L152 58 M148 64 L152 68" />
+        <path class="ink" d="M58 84 C58 80 182 79 182 84 L184 124 C150 128 92 129 56 124 Z" fill="#e6dcf2" style="fill:#e6dcf2"/>
+        <path class="ink" d="M58 92 C66 102 74 92 82 100 C90 108 98 94 106 102 C114 110 122 94 130 102 C138 110 146 94 154 102 C162 110 170 94 182 98"/>
+        <path class="ink" d="M40 126 C40 120 200 119 200 126 L203 176 C160 182 82 183 37 176 Z" style="fill:#c9b6e4"/>
+        <path class="ink" d="M48 146 C60 140 66 152 78 146 M100 150 C112 144 118 156 130 150 M152 146 C164 140 170 152 182 146"/>
+        <path class="ink" d="M22 182 C70 192 170 192 218 182"/>
+      </svg>
     </button>
-    <p id="wishText">make a wish dulu, terus tap kuenya buat tiup lilin 🎂</p>
+    <p id="wishText">make a wish dulu, terus tap kuenya buat tiup lilin</p>
   </div>
 </section>
 
-<footer class="wrap">
-  dibikin pake banyak sayang (dan sedikit begadang) sama pau
-  <small>05.08.26 → selamanya</small>
+<footer>
+  <div class="wrap">
+    <p class="script" style="margin:0">dibikin pake banyak sayang (dan sedikit begadang), pau</p>
+    <small>05.08.26 → selamanya</small>
+  </div>
 </footer>
 
 <dialog id="lb" aria-label="Foto"><img id="lbImg" alt=""><p id="lbCap"></p><button id="lbClose">tutup</button></dialog>
@@ -343,26 +458,41 @@ dialog button{position:absolute;right:12px;bottom:10px;border:0;background:var(-
 
 <script>
 const photos=[
- ["01","rawr, mode galak","4/3"],["02","aku cakep, kamu cemberut","4/3"],["03","sayang muka kamu kenapa 😭","4/3"],
- ["04","ngantuk apa ngambek?","4/3"],["05","duo sangar","4/3"],["06","pamer hasil photobox","3/4"],
- ["07","melet berjamaah","3/4"],["08","sushi date!","4/3"],["09","nunjuk-nunjuk sushi","4/3"],
- ["10","duck face combo","4/3"],["11","tiket studio 3","4/3"],["12","malu, ketutupan tiket","4/3"],
- ["13","lift lantai 'kita'","3/4"],["14","kaget mau nonton","4/3"],["15","senyum ganteng (langka)","4/3"],
- ["16","koboi & kucing","2/3"],["17","AAAAA 🤠🐱","2/3"],["18","selfie time strip","2/3"]
+ ["01","rawr, mode galak"],["02","aku cakep, kamu cemberut"],["03","sayang, muka kamu kenapa"],
+ ["04","ngantuk apa ngambek?"],["05","duo sangar"],["06","pamer hasil photobox"],
+ ["07","melet berjamaah"],["08","sushi date"],["09","nunjuk-nunjuk sushi"],
+ ["10","duck face combo"],["11","tiket studio 3"],["12","malu, ketutupan tiket"],
+ ["13","lift lantai 'kita'"],["14","kaget mau nonton"],["15","senyum ganteng (langka)"],
+ ["16","koboi & kucing"],["17","aaaaa"],["18","selfie time strip"]
 ];
 const groups={w1:[5,12,15,16,6,7,8,9],w2:[10,11,13,14],w3:[0,1,2,3,4]};
-const rots=[-4,3,-2,5,-3,2,-5,4,-1];
+const tapes=["w-gingham","w-dots","w-stripe","w-plain","w-check"];
+const rots=[-4,3,-2,5,-3,2,-5,4,-1,3];
 let k=0;
 for(const [id,list] of Object.entries(groups)){
   const el=document.getElementById(id);
   list.forEach(i=>{
-    const [f,cap,ar]=photos[i];
+    const [f,cap]=photos[i];
     const b=document.createElement("button");
-    b.className="polaroid";b.dataset.i=i;b.style.setProperty("--r",rots[k++%rots.length]+"deg");
-    b.innerHTML=`<span class="tape" style="top:-12px;left:${20+(k*17)%45}%;transform:rotate(${(k%2?-1:1)*(4+k%5)}deg)"></span><img src="img/${f}.jpg" alt="${cap}" loading="lazy" style="--ar:${ar==='2/3'?'3/4':ar}"><span class="cap">${cap}</span>`;
-    el.appendChild(b);
+    b.className="polaroid";b.dataset.i=i;b.style.setProperty("--r",rots[k%rots.length]+"deg");
+    b.innerHTML=`<span class="washi ${tapes[k%tapes.length]}" style="--wr:${(k%2?-1:1)*(2+k%5)}deg"></span><span class="ph"><img src="img/${f}.jpg" alt="${cap}" loading="lazy"></span><span class="cap">${cap}</span>`;
+    el.appendChild(b);k++;
   });
 }
+// scatter a few pressed flowers on the wall
+[["w1","#forget",-30,40,80,-15],["w2","#sprig",null,-30,60,20],["w3","#daisy",-20,null,70,10]].forEach(([id,sym,l,t,w,r])=>{
+  const host=document.getElementById(id).parentElement;host.style.position="relative";
+  const s=document.createElementNS("http://www.w3.org/2000/svg","svg");s.setAttribute("class","flower hide-sm");
+  s.style.cssText=`width:${w}px;${l===null?"right:-10px":"left:"+l+"px"};${t===null?"bottom:-20px":"top:"+t+"px"};transform:rotate(${r}deg)`;
+  if(sym==="#sprig")s.style.height=w*2+"px";
+  s.innerHTML=`<use href="${sym}"/>`;host.appendChild(s);
+});
+// torn edges on scraps and the album insert
+function tear(el,n,d){const p=[];for(let i=0;i<=n;i++)p.push(`${(i/n*100).toFixed(1)}% ${(Math.random()*d).toFixed(2)}%`);for(let i=0;i<=n;i++)p.push(`${(100-Math.random()*d*.6).toFixed(2)}% ${(i/n*100).toFixed(1)}%`);for(let i=n;i>=0;i--)p.push(`${(i/n*100).toFixed(1)}% ${(100-Math.random()*d).toFixed(2)}%`);el.style.clipPath=`polygon(${p.join(",")})`}
+document.querySelectorAll(".scrap").forEach(s=>{const w=s.querySelector(".washi");tear(s,22,5);if(w){s.style.overflow="visible"}});
+// keep tapes visible on torn scraps: move them outside the clip
+document.querySelectorAll(".scrap").forEach(s=>{const w=s.querySelector(".washi");if(!w)return;const box=document.createElement("div");box.className="scrapbox";box.style.cssText="position:relative";s.parentNode.insertBefore(box,s);box.appendChild(s);box.appendChild(w);w.style.zIndex=5});
+
 // lightbox
 const lb=document.getElementById("lb"),lbImg=document.getElementById("lbImg"),lbCap=document.getElementById("lbCap");
 document.addEventListener("click",e=>{
@@ -373,34 +503,32 @@ document.addEventListener("click",e=>{
 document.getElementById("lbClose").onclick=()=>lb.close();
 lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
 
-// torn edges on the sleeve
-function tear(el,n=36,d=2.2){let p=[];for(let i=0;i<=n;i++)p.push(`${(i/n*100).toFixed(1)}% ${(Math.random()*d).toFixed(2)}%`);for(let i=n;i>=0;i--)p.push(`${(i/n*100).toFixed(1)}% ${(100-Math.random()*d).toFixed(2)}%`);el.style.clipPath=`polygon(${p.join(",")})`}
-document.querySelectorAll(".sleeve").forEach(s=>tear(s,40,1.6));
-
 // envelope
 const env=document.getElementById("env"),lw=document.getElementById("letterWrap"),hint=document.getElementById("hint");
 env.addEventListener("click",()=>{
   const open=!env.classList.contains("open");
   env.classList.toggle("open",open);lw.classList.toggle("show",open);env.setAttribute("aria-expanded",open);
-  hint.textContent=open?"bacanya sambil senyum ya 🤭":"tap amplopnya 💌";
-  if(open){burst(60);setTimeout(()=>lw.scrollIntoView({behavior:"smooth",block:"start"}),500)}
+  hint.textContent=open?"bacanya sambil senyum ya":"tap amplopnya";
+  if(open){burst(70);setTimeout(()=>lw.scrollIntoView({behavior:"smooth",block:"start"}),650)}
 });
 
-// confetti of paper scraps
+// confetti: little paper scraps and petals
 const cv=document.getElementById("confetti"),cx=cv.getContext("2d");let bits=[],raf=0;
-const cols=["#6b3fa0","#b79ee0","#e46a8c","#f6f1e7","#f7f0b5","#24133a"];
+const cols=["#5e3d86","#b9a3d9","#d98ea4","#f6f0e4","#c4a076","#9fb6dd","#fbf7ee"];
 function size(){cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio;cx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}
 addEventListener("resize",size);size();
 function burst(n){
   if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
-  for(let i=0;i<n;i++)bits.push({x:innerWidth/2+(Math.random()-.5)*200,y:innerHeight*.45,vx:(Math.random()-.5)*12,vy:-Math.random()*14-4,w:6+Math.random()*10,h:4+Math.random()*8,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:cols[i%cols.length],life:0});
+  for(let i=0;i<n;i++)bits.push({x:innerWidth/2+(Math.random()-.5)*240,y:innerHeight*.5,vx:(Math.random()-.5)*11,vy:-Math.random()*13-4,w:5+Math.random()*9,h:4+Math.random()*7,r:Math.random()*6,vr:(Math.random()-.5)*.25,c:cols[i%cols.length],petal:Math.random()<.4,life:0});
   if(!raf)tick();
 }
 function tick(){
   cx.clearRect(0,0,innerWidth,innerHeight);
-  bits=bits.filter(b=>b.y<innerHeight+40&&b.life<400);
-  for(const b of bits){b.vy+=.35;b.vx*=.99;b.x+=b.vx;b.y+=b.vy;b.r+=b.vr;b.life++;
-    cx.save();cx.translate(b.x,b.y);cx.rotate(b.r);cx.fillStyle=b.c;cx.fillRect(-b.w/2,-b.h/2,b.w,b.h);cx.restore()}
+  bits=bits.filter(b=>b.y<innerHeight+40&&b.life<420);
+  for(const b of bits){b.vy=Math.min(b.vy+.3,4.2);b.vx*=.985;b.x+=b.vx+Math.sin(b.life/12)*.8;b.y+=b.vy;b.r+=b.vr;b.life++;
+    cx.save();cx.translate(b.x,b.y);cx.rotate(b.r);cx.fillStyle=b.c;
+    if(b.petal){cx.beginPath();cx.ellipse(0,0,b.w*.45,b.w*.8,0,0,Math.PI*2);cx.fill()}else cx.fillRect(-b.w/2,-b.h/2,b.w,b.h);
+    cx.restore()}
   raf=bits.length?requestAnimationFrame(tick):0;
 }
 
@@ -408,8 +536,8 @@ function tick(){
 const cake=document.getElementById("cake"),wt=document.getElementById("wishText");
 cake.addEventListener("click",()=>{
   const out=!cake.classList.contains("out");cake.classList.toggle("out",out);
-  if(out){wt.innerHTML='<span class="after">yeay! semoga kekabul semua ya sayang 🤍</span>';burst(160)}
-  else wt.textContent="lilinnya nyala lagi, boleh wish sekali lagi 🎂";
+  if(out){wt.innerHTML='<span class="after">semoga kekabul semua ya, sayang</span>';burst(170)}
+  else wt.textContent="lilinnya nyala lagi. boleh wish sekali lagi";
 });
 </script>
 </body>
